@@ -1,39 +1,36 @@
-<div class="flex items-center justify-between">
-  <div>
-    <h1 class="text-2xl font-semibold">Pradžia</h1>
-    <p class="text-slate-600 mt-1">Naujausia teorija ir užduotys.</p>
+<section class="welcome" aria-labelledby="welcome-title">
+  <div><div class="eyebrow">Tavo C++ mokymosi erdvė</div>
+    <h1 id="welcome-title">Mažais žingsniais į didelius atradimus.</h1>
+    <p>Teorija, aiškūs pavyzdžiai ir užduotys vienoje vietoje. Pasirink temą ir išbandyk tai, ką išmokai.</p>
+    <a class="primary-link" href="/app/temos">Rinktis mokymosi temą <span aria-hidden="true">&nbsp; →</span></a>
+  </div><div class="welcome-symbol" aria-hidden="true">{ }</div>
+</section>
+<section class="mt-8" aria-labelledby="courses-title">
+  <div class="section-label"><h2 id="courses-title">Atrask temas</h2><a href="/app/temos">Visos temos →</a></div>
+  <div class="course-grid">
+    <% (navTree || []).forEach((g, i) => { %>
+      <a class="course-card" href="/app/temos?grupe=<%= g.id %>">
+        <div class="eyebrow"><%= String(i + 1).padStart(2, '0') %> / Temų grupė</div>
+        <h3><%= g.title %> <span aria-hidden="true">↗</span></h3>
+        <p>Temų skaičius: <%= g.topics.length %></p>
+      </a>
+    <% }) %>
+    <% if (!(navTree || []).length) { %><p class="text-sm text-slate-500">Temos ruošiamos. Netrukus čia atsiras mokymosi medžiaga.</p><% } %>
   </div>
+</section>
+<div class="grid md:grid-cols-2 gap-5 mt-8">
+<section class="bg-white border border-slate-200 rounded-lg p-5">
+  <div class="section-label"><h2>Naujausia teorija</h2><a href="/app/teorija">Visa teorija →</a></div>
+  <% if (!latestTheory.length) { %><p class="text-sm text-slate-500">Teorijos įrašų dar nėra.</p><% } %>
+  <% latestTheory.forEach((t) => { %>
+    <a class="content-row" href="/app/teorija/<%= t.id %>"><span class="row-icon" aria-hidden="true">Aa</span><div><div class="row-title"><%= t.title %></div><div class="row-meta"><%= t.topic_title %></div></div><span class="row-arrow" aria-hidden="true">→</span></a>
+  <% }) %>
+</section>
+<section class="bg-white border border-slate-200 rounded-lg p-5">
+  <div class="section-label"><h2>Laikas pasipraktikuoti</h2><a href="/app/uzduotys">Visos užduotys →</a></div>
+  <% if (!latestTasks.length) { %><p class="text-sm text-slate-500">Užduočių dar nėra.</p><% } %>
+  <% latestTasks.forEach((t) => { %>
+    <a class="content-row" href="/app/uzduotis/<%= t.id %>"><span class="row-icon task" aria-hidden="true">&lt;/&gt;</span><div><div class="row-title"><%= t.title %></div><div class="row-meta"><%= t.topic_title %></div></div><span class="level">Lygis <%= t.difficulty %></span></a>
+  <% }) %>
+</section>
 </div>
-
-<div class="grid md:grid-cols-2 gap-4 mt-6">
-  <div class="bg-white border border-slate-200 rounded-lg p-4">
-    <div class="font-semibold">Naujausia teorija</div>
-    <div class="mt-3 space-y-2">
-      <% if (!latestTheory.length) { %>
-        <div class="text-sm text-slate-600">Kol kas nėra įrašų.</div>
-      <% } %>
-      <% latestTheory.forEach((t) => { %>
-        <a class="block p-3 rounded hover:bg-slate-50 border border-slate-100" href="/app/teorija/<%= t.id %>">
-          <div class="font-medium"><%= t.title %></div>
-          <div class="text-xs text-slate-500 mt-1"><%= t.topic_title %> • <%= t.updated_at %></div>
-        </a>
-      <% }) %>
-    </div>
-  </div>
-
-  <div class="bg-white border border-slate-200 rounded-lg p-4">
-    <div class="font-semibold">Naujausios užduotys</div>
-    <div class="mt-3 space-y-2">
-      <% if (!latestTasks.length) { %>
-        <div class="text-sm text-slate-600">Kol kas nėra įrašų.</div>
-      <% } %>
-      <% latestTasks.forEach((t) => { %>
-        <a class="block p-3 rounded hover:bg-slate-50 border border-slate-100" href="/app/uzduotis/<%= t.id %>">
-          <div class="font-medium"><%= t.title %></div>
-          <div class="text-xs text-slate-500 mt-1"><%= t.topic_title %> • Lygis <%= t.difficulty %> • <%= t.updated_at %></div>
-        </a>
-      <% }) %>
-    </div>
-  </div>
-</div>
-
