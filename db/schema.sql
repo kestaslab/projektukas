@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   output_desc TEXT,
   examples TEXT,
   teacher_notes TEXT,
+  external_url TEXT,
   hint TEXT,
   tags TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now')),

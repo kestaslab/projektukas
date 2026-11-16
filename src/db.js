@@ -29,6 +29,10 @@ function initDb({ dataDir }) {
   if (!topicColumns.some((column) => column.name === 'is_current')) {
     db.exec('ALTER TABLE topics ADD COLUMN is_current INTEGER NOT NULL DEFAULT 0 CHECK (is_current IN (0, 1))');
   }
+  const taskColumns = db.prepare('PRAGMA table_info(tasks)').all();
+  if (!taskColumns.some(column => column.name === 'external_url')) {
+    db.exec('ALTER TABLE tasks ADD COLUMN external_url TEXT');
+  }
   return db;
 }
 

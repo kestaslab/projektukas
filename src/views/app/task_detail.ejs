@@ -4,6 +4,12 @@
   <% if (task.short_description) { %><p class="text-slate-600 mt-1"><%= task.short_description %></p><% } %>
 </div>
 
+<% if (task.external_url && task.external_url.startsWith('https://progmis.lt/task/') && !isNaN(Number(task.external_url.split('/').pop()))) { %>
+<div class="mt-4 p-4 bg-white border border-slate-200 rounded-lg">
+  <a class="primary-link" style="margin-top:0" href="<%= task.external_url %>" target="_blank" rel="noopener noreferrer">Atidaryti užduotį PROGMIS ↗</a>
+  <p class="text-sm text-slate-500 mt-2">Sąlyga ir automatinis tikrinimas pateikiami PROGMIS. Gali reikėti prisijungimo ir atskiros prieigos.</p>
+</div>
+<% } %>
 <div class="grid lg:grid-cols-3 gap-4 mt-6">
   <article class="lg:col-span-2 bg-white border border-slate-200 rounded-lg p-4 space-y-4">
     <section>
