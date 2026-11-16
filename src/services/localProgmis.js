@@ -11,7 +11,7 @@ function importLocalProgmis(bundle, db) {
   if(count>1000)throw new Error('Pakete per daug įrašų.');
   db.transaction(()=>{
     for(const section of bundle.sections){
-      const topic=db.prepare(`SELECT t.id FROM topics t JOIN topic_groups g ON t.group_id=g.id WHERE g.title='Programavimo pagrindai · 10 klasė' AND t.title=?`).get(mapping[section.sourceTopicId]);
+      const topic=db.prepare(`SELECT t.id FROM topics t JOIN topic_groups g ON t.group_id=g.id WHERE g.title IN ('Programavimo pagrindai · 10 klasė','Programavimo pagrindai · 11 klasė','Programavimo pagrindai · 12 klasė') AND t.title=?`).get(mapping[section.sourceTopicId]);
       if(!topic)throw new Error('Nerasta programavimo tema. Pirmiausia įkelkite 10 klasės programavimo pagrindų struktūrą.');
       const theoryIds=[],taskIds=[];
       const check=(key,content)=>{
