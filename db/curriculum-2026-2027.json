@@ -1,0 +1,886 @@
+{
+  "schoolYear": "2026–2027",
+  "version": 1,
+  "groups": [
+    {
+      "source": "10_klases_informatikos_planas_2026_2027.docx",
+      "title": "10 klasė · Informatika",
+      "description": "Mokymosi temos pagal 2026–2027 m. m. planą. Temos apjungia giminingą turinį, nepriklauso nuo pamokų datų ir gali būti nagrinėjamos pakartotinai.",
+      "topics": [
+        {
+          "outcomes": [
+            "Įvertina monitoriaus, kėdės, klaviatūros padėtį ir apšvietimą. Atpažįsta rizikas, pasiūlo pataisymus ir paaiškina darbo pertraukų reikšmę."
+          ],
+          "title": "Ergonomika ir saugus darbas",
+          "description": "Ergonomiškos darbo vietos įrengimas ir saugus naudojimasis kompiuteriu."
+        },
+        {
+          "outcomes": [
+            "Kuria stiprių slaptažodžių pavyzdžius, paaiškina papildomos apsaugos paskirtį. Atpažįsta įtartinas nuorodas ir prašymus atskleisti duomenis."
+          ],
+          "title": "Paskyrų ir asmens duomenų apsauga",
+          "description": "Paskyrų apsauga: slaptažodžiai, dviejų veiksnių autentifikavimas ir apgaulingų pranešimų atpažinimas."
+        },
+        {
+          "outcomes": [
+            "Palygina taisymo, pakartotinio naudojimo ir keitimo galimybes. Pasiūlo konkrečius būdus mažinti įrenginių poveikį aplinkai."
+          ],
+          "title": "Skaitmeninės technologijos ir aplinkosauga",
+          "description": "Skaitmeninių įrenginių poveikis aplinkai: energijos taupymas, ilgesnis naudojimas ir elektroninių atliekų tvarkymas."
+        },
+        {
+          "outcomes": [
+            "Naudoja paprastą poslinkio šifrą, paaiškina rakto paskirtį. Supranta, kodėl mokomasis šifras netinka tikrai duomenų apsaugai.",
+            "Schemoje parodo raktų naudojimą šifruojant ir iššifruojant. Atskiria duomenų slaptumą nuo parašo tikrinimo; paaiškina privataus rakto apsaugą."
+          ],
+          "title": "Šifravimas ir elektroninis parašas",
+          "description": "Simetrinis šifravimas: pranešimo užšifravimas ir iššifravimas tuo pačiu raktu; Asimetrinis šifravimas ir elektroninis parašas: viešojo ir privačiojo raktų paskirtis."
+        },
+        {
+          "outcomes": [
+            "Mokomojoje aplinkoje suskirsto pavyzdžius į dvi kategorijas, išmoko paprastą klasifikavimo modelį ir išbando jį su naujais pavyzdžiais.",
+            "Užklausoje nurodo užduotį, kontekstą ir norimą rezultatą. Tikrina teiginius patikimuose šaltiniuose, atpažįsta nepagrįstus atsakymus ir saugo asmens duomenis."
+          ],
+          "title": "Mašininis mokymasis ir generatyvinis DI",
+          "description": "Mašininis mokymasis: modelio mokymas pagal pavyzdžius ir tikslumo tikrinimas; Generatyvinio dirbtinio intelekto užklausų formulavimas ir atsakymų patikimumo tikrinimas."
+        },
+        {
+          "outcomes": [
+            "Skaičiuoklėje atskiria tekstą, skaičius ir datas. Sutvarko nevienodus įrašus, aptinka pasikartojimus ir trūkstamas reikšmes, jų neišgalvodamas.",
+            "Surikiuoja lentelę pagal du laukus, atrenka įrašus pagal sąlygas. Naudodamasis atrinktais duomenimis atsako į praktinius klausimus."
+          ],
+          "title": "Duomenų paruošimas, rikiavimas ir filtravimas",
+          "description": "Duomenų lentelės parengimas analizei: duomenų tipai, trūkstamos reikšmės ir klaidų taisymas; Duomenų rikiavimas ir filtravimas pagal vieną bei kelis kriterijus."
+        },
+        {
+          "outcomes": [
+            "Apskaičiuoja sumą, vidurkį, mažiausią ir didžiausią reikšmes. Parenka tinkamą diagramą ir pateikia dvi duomenimis pagrįstas išvadas."
+          ],
+          "title": "Skaičiuoklės funkcijos ir diagramos",
+          "description": "Duomenų apibendrinimas funkcijomis ir vaizdavimas diagramomis."
+        },
+        {
+          "outcomes": [
+            "Numato paprasto ciklo rezultatą, parašo kartojamą veiksmą atliekančią programą. Atpažįsta ir pataiso klaidingas ciklo ribas.",
+            "Programoje susumuoja įvestas reikšmes ir suskaičiuoja atitinkančias sąlygą. Parenka tinkamas pradines sumos ir skaitiklio reikšmes."
+          ],
+          "title": "Ciklai ir duomenų apdorojimas",
+          "description": "Ciklo taikymas pasikartojantiems veiksmams: kartojimų skaičius ir ciklo kintamasis; Duomenų apdorojimas cikle: sumos kaupimas ir sąlygą atitinkančių reikšmių skaičiavimas."
+        },
+        {
+          "outcomes": [
+            "Randa pasikartojančius veiksmus, išskiria juos į paprogramę ir iškviečia keliose vietose. Paaiškina, kaip tai palengvina programos taisymą.",
+            "Sukuria funkciją su parametrais ir grąžinamu rezultatu. Iškviečia ją su skirtingais argumentais, rezultatą naudoja tolesniam skaičiavimui.",
+            "Pirkinių kainos su nuolaida ar panašų uždavinį suskaido į mažesnes užduotis. Sukuria ir atskirai patikrina jas atliekančias paprogrames."
+          ],
+          "title": "Funkcijos ir uždavinio skaidymas",
+          "description": "Paprogramės kūrimas ir iškvietimas: pasikartojančios kodo dalies išskyrimas; Paprogramės parametrai ir grąžinama reikšmė: skaičiavimo funkcijos kūrimas; Praktinio uždavinio skaidymas į paprogrames ir jų rezultatų sujungimas."
+        },
+        {
+          "outcomes": [
+            "Atveria pateiktą failą ir perskaito duomenis. Kai reikia, tekstą paverčia skaičiais; patikrina, ar duomenys perskaityti teisingai.",
+            "Apskaičiuoja skaitinių duomenų suvestinę. Rezultatus su paaiškinimais įrašo į naują failą ir patikrina jo turinį.",
+            "Remdamasis ankstesniais darbais sukuria išlaidų ar matavimų suvestinės programą. Pritaiko ciklą ir paprogramę."
+          ],
+          "title": "Tekstiniai failai ir užduočių automatizavimas",
+          "description": "Duomenų skaitymas iš tekstinio failo ir parengimas skaičiavimams; Iš failo nuskaitytų duomenų apdorojimas ir rezultatų rašymas į failą; Praktinės užduoties automatizavimas: duomenų skaitymo, skaičiavimo ir rezultatų pateikimo sujungimas."
+        },
+        {
+          "outcomes": [
+            "Parengia testo duomenis ir numato rezultatus. Palygina juos su programos rezultatais, taiso klaidas ir trumpai aprašo naudojimą."
+          ],
+          "title": "Programų testavimas ir klaidų taisymas",
+          "description": "Programos testavimas, ribinių atvejų tikrinimas, klaidų taisymas ir naudojimo aprašas."
+        },
+        {
+          "outcomes": [
+            "Paaiškina pagrindinių dalių funkcijas. Palygina dviejų kompiuterių specifikacijas ir pagrindžia pasirinkimą konkrečiai veiklai.",
+            "Atskiria operacinę sistemą nuo taikomųjų programų. Sudaro trikčių tikrinimo seką: laisva vieta, veikiančios programos, ryšys, naujinimai."
+          ],
+          "title": "Kompiuterio sandara ir programų priežiūra",
+          "description": "Kompiuterio pasirinkimas pagal užduotį: procesoriaus, atminties, kaupiklio ir vaizdo plokštės vaidmuo; Operacinės sistemos ir programų priežiūra: naujinimai, saugus diegimas ir trikčių nustatymas."
+        },
+        {
+          "outcomes": [
+            "Mokomajame pavyzdyje užpildo formą ir patikrina duomenis. Paaiškina tapatybės patvirtinimą, atskiria būtinus duomenis nuo perteklinių.",
+            "Suteikia tinkamas dokumento prieigos teises, komentuoja ir peržiūri pakeitimus. Pasirenka, kada tinka pokalbis realiuoju laiku, o kada komentarai ar žinutės."
+          ],
+          "title": "Elektroninės paslaugos ir bendradarbiavimas",
+          "description": "Elektroninės paslaugos: tapatybės patvirtinimas, formų pildymas ir asmens duomenų apsauga; Bendro dokumento rengimas: prieigos teisės, komentarai, versijų istorija ir bendravimo būdai."
+        },
+        {
+          "outcomes": [
+            "Atskiria grafikos rūšis, palygina didinamų vaizdų kokybę. Apkerpa taškinį vaizdą, keičia jo matmenis; parenka JPEG, PNG ar SVG pagal paskirtį.",
+            "Sukuria plakatą su aiškia žinute, įskaitomu tekstu ir suderintais vaizdais. Prireikus nurodo išteklių autorius ir šaltinius."
+          ],
+          "title": "Taškinė ir vektorinė grafika, plakato kūrimas",
+          "description": "Taškinė ir vektorinė grafika: vaizdo matmenys, raiška ir failų formatai; Informacinio plakato kūrimas: teksto hierarchija, kontrastas, lygiavimas ir teisėtas vaizdų naudojimas."
+        },
+        {
+          "outcomes": [
+            "Pradeda vieno ar dviejų puslapių leidinį. Nustato paraštes, taiko teksto stilius ir įterpia vaizdą su tinkamu teksto išdėstymu.",
+            "Užbaigia leidinį, patikrina skaitomumą ir elementų išdėstymą. Eksportuoja į PDF ir patikrina, ar išliko numatytas maketas."
+          ],
+          "title": "Leidinio maketavimas ir PDF",
+          "description": "Leidinio maketavimas: puslapio parametrai, antraščių stiliai, teksto ir vaizdų išdėstymas; Leidinio užbaigimas: vienodas formatavimas, maketo taisymas ir eksportavimas į PDF."
+        },
+        {
+          "outcomes": [
+            "Sukuria vieno puslapio HTML dokumentą. Patikrina nuorodas ir paveikslų rodymą, prideda prasmingą alternatyvųjį tekstą.",
+            "Pritaiko CSS taisykles, parenka įskaitomą tekstą ir pakankamą kontrastą. Patikrina puslapį skirtingo pločio lange."
+          ],
+          "title": "Tinklalapių kūrimas su HTML ir CSS",
+          "description": "Tinklalapio kūrimas su HTML: antraštės, pastraipos, sąrašai, nuorodos ir paveikslai; Tinklalapio apipavidalinimas su CSS: spalvos, šriftai, tarpai ir turinio plotis."
+        },
+        {
+          "outcomes": [
+            "Pasirenka anksčiau pradėtą programą, leidinį arba tinklalapį. Numato patobulinimus ir įgyvendina juos pagal sutartus kriterijus.",
+            "Pristato produktą, paaiškina sprendimus ir parodo rezultatą. Įvardija įveiktą sunkumą, įgytą gebėjimą ir tolesnį mokymosi poreikį."
+          ],
+          "title": "Kūrybinis projektas ir jo pristatymas",
+          "description": "Kūrybinio projekto rengimas: tikslo, auditorijos ir vertinimo kriterijų nustatymas bei produkto tobulinimas; Kūrybinio projekto pristatymas, sprendimų pagrindimas ir metų pažangos įsivertinimas."
+        }
+      ]
+    },
+    {
+      "source": "III_klases_informatikos_planas_2026_2027.docx",
+      "title": "III klasė · Informatika",
+      "description": "Mokymosi temos pagal 2026–2027 m. m. planą. Temos apjungia giminingą turinį, nepriklauso nuo pamokų datų ir gali būti nagrinėjamos pakartotinai.",
+      "topics": [
+        {
+          "outcomes": [
+            "Įvertina darbo vietą ir pagrindžia tris patobulinimus.",
+            "Pasirenka saugų veiksmą konkrečioje situacijoje."
+          ],
+          "title": "Ergonomika ir techninė sauga",
+          "description": "Ergonominių darbo vietos rizikų nustatymas ir šalinimas; Techninė sauga ir saugaus darbo taisyklių taikymas."
+        },
+        {
+          "outcomes": [
+            "Paaiškina gamybos, naudojimo ir atliekų poveikį.",
+            "Apskaičiuoja energiją pagal galią ir naudojimo laiką.",
+            "Palygina du naudojimo scenarijus ir jų prielaidas.",
+            "Pateikia duomenimis pagrįstą veiksmų planą."
+          ],
+          "title": "Įrenginių ir skaitmeninių paslaugų poveikis aplinkai",
+          "description": "Skaitmeninio įrenginio gyvavimo ciklas ir poveikis aplinkai; Įrenginių elektros sąnaudų skaičiavimas ir palyginimas; Skaitmeninių paslaugų poveikio aplinkai scenarijai; Poveikio aplinkai mažinimo rekomendacijų rengimas."
+        },
+        {
+          "outcomes": [
+            "Suformuluoja patikrinamą klausimą ir kintamuosius.",
+            "Pasirenka tinkamą rinkinį ir užrašo šaltinį.",
+            "Sukuria trumpą neutralių klausimų apklausą.",
+            "Atskiria duomenų apimtį, įvairovę ir gavimo spartą."
+          ],
+          "title": "Duomenų tyrimo planavimas, šaltiniai ir etika",
+          "description": "Tyrimo klausimas, kintamieji ir reikalingų duomenų pasirinkimas; Atvirųjų duomenų šaltinių patikimumo vertinimas; Apklausos kūrimas ir duomenų rinkimo etika; Didžiųjų duomenų samprata ir duomenų tyrybos etapai."
+        },
+        {
+          "outcomes": [
+            "Importuoja lentelę išsaugodamas tinkamus tipus.",
+            "Aptinka klaidas ir pagrindžia jų tvarkymą.",
+            "Suderina dviejų lentelių įrašus pagal raktą."
+          ],
+          "title": "CSV importas, duomenų kokybė ir rinkinių jungimas",
+          "description": "CSV duomenų importas ir duomenų žodyno sudarymas; Duomenų kokybė: trūkstamos reikšmės, pasikartojimai ir vienetai; Duomenų rinkinių sujungimas pagal bendrą identifikatorių."
+        },
+        {
+          "outcomes": [
+            "Atrenka duomenis pagal kelis kriterijus.",
+            "Palygina vidurkį, medianą, kiekį ir duomenų pilnumą.",
+            "Pasirenka tinkamą apvalinimą ir vieną sąlygą.",
+            "Sudaro suvestinę pagal dvi sąlygas.",
+            "Išskiria datos dalis ir suranda susijusį įrašą."
+          ],
+          "title": "Duomenų atranka, statistika ir sąlyginiai skaičiavimai",
+          "description": "Duomenų rikiavimas, atranka ir užklausos sąlygų sudarymas; Statistinė duomenų suvestinė ir netuščių langelių skaičiavimas; Apvalinimas ir sąlyginiai skaičiavimai duomenų analizėje; Kelių sąlygų analizė ir duomenų grupių palyginimas; Datos ir paieškos funkcijos duomenų jungimui."
+        },
+        {
+          "outcomes": [
+            "Atskiria pastebėtą sąryšį nuo priežastingumo.",
+            "Pateikia skaičiavimus, išvadą ir jos ribotumą."
+          ],
+          "title": "Duomenų interpretavimas ir tyrimo ataskaita",
+          "description": "Duomenų ryšių tyrinėjimas ir nepagrįstų išvadų atpažinimas; Duomenų tyrimo ataskaita ir išvadų pagrindimas."
+        },
+        {
+          "outcomes": [
+            "Pagrindžia diagramos tipo pasirinkimą.",
+            "Sukuria aiškią kategorijų palyginimo diagramą.",
+            "Parodo pokytį laike ir paaiškina skales.",
+            "Sukuria histogramą ir paaiškina intervalų poveikį.",
+            "Atpažįsta medianą, kvartilius ir išskirtis.",
+            "Aprašo ryšio kryptį ir išskirtinius taškus.",
+            "Pataiso klaidinančią diagramą ir pagrindžia pakeitimus."
+          ],
+          "title": "Diagramų parinkimas ir duomenų vizualizavimas",
+          "description": "Diagramos pasirinkimas pagal duomenų rūšį ir tyrimo klausimą; Stulpelinės ir juostinės diagramos kategorijoms palyginti; Linijinės ir kombinuotosios diagramos pokyčiams vaizduoti; Histograma ir duomenų pasiskirstymas intervalais; Stačiakampė diagrama ir pasiskirstymų palyginimas; Sklaidos diagrama ir dviejų skaitinių kintamųjų ryšys; Duomenų vizualizacijos tobulinimas ir pristatymas."
+        },
+        {
+          "outcomes": [
+            "Pasirenka tinkamą grafikos rūšį ir formatą.",
+            "Sukuria figūras ir pakeičia užpildą bei kontūrą.",
+            "Tiksliai išdėsto ir sugrupuoja elementus.",
+            "Sutvarko piešinio sluoksnius ir objektų eiliškumą.",
+            "Taiko pasukimą, atspindį ir proporcingą mastelį."
+          ],
+          "title": "Vektoriniai objektai, sluoksniai ir transformacijos",
+          "description": "Taškinės ir vektorinės grafikos palyginimas bei formatų pasirinkimas; Vektorinių objektų kūrimas ir jų savybių keitimas; Objektų lygiavimas, paskirstymas ir grupavimas; Sluoksniai ir objektų persidengimo tvarka; Objektų transformacijos ir proporcijų išlaikymas."
+        },
+        {
+          "outcomes": [
+            "Sukuria ir koreguoja paprastą kontūrą.",
+            "Sudaro sudėtingesnį ženklą iš paprastų figūrų.",
+            "Priderina tekstą ir paaiškina kontūrų pasekmes."
+          ],
+          "title": "Bezjė kreivės, figūrų operacijos ir tekstas",
+          "description": "Bezjė kreivės, mazgai ir jų valdymas; Figūrų jungimas, sankirta ir atimtis; Tekstas vektoriniame kūrinyje ir teksto pavertimas kontūrais."
+        },
+        {
+          "outcomes": [
+            "Sukuria originalų ženklą pagal kriterijus.",
+            "Pateikia redaguojamą failą ir tinkamą eksporto kopiją."
+          ],
+          "title": "Vektorinis ženklas ir eksportas",
+          "description": "Vektorinio ženklo kūrimas pagal paskirtį ir auditoriją; Vektorinio kūrinio tikrinimas ir eksportas į SVG bei PNG."
+        },
+        {
+          "outcomes": [
+            "Parenka tipą ir numato trumpo kodo rezultatą.",
+            "Sukuria masyvą ir pasiekia jo elementus.",
+            "Sukuria seką ir prideda elementų.",
+            "Perskaito ir pateikia n elementų."
+          ],
+          "title": "C++ pagrindai, masyvai ir vektoriai",
+          "description": "C++ duomenų tipų, sąlygų ir ciklų diagnostinis kartojimas; Vienmatis masyvas ir elementų indeksai; Dinaminio dydžio duomenų seka su std::vector; Duomenų sekos įvedimas ir išvedimas ciklu."
+        },
+        {
+          "outcomes": [
+            "Perskaito eilutę ir pasiekia pasirinktą simbolį.",
+            "Suskaičiuoja pasirinktus simbolius eilutėje."
+          ],
+          "title": "Teksto eilutės ir simbolių apdorojimas",
+          "description": "Teksto eilutė std::string ir simbolių indeksavimas; Teksto eilutės perėjimas ciklu ir simbolių skaičiavimas."
+        },
+        {
+          "outcomes": [
+            "Sukuria įrašą su skirtingų tipų laukais.",
+            "Saugo ir pateikia kelių objektų įrašus.",
+            "Pagrindžia masyvo, eilutės ar struktūros pasirinkimą."
+          ],
+          "title": "Struktūros ir duomenų struktūros pasirinkimas",
+          "description": "Struktūra struct kelių tipų duomenims aprašyti; Struktūrų seka ir susijusių duomenų saugojimas; Duomenų struktūros pasirinkimas ir praktinė užduotis."
+        },
+        {
+          "outcomes": [
+            "Atveria failą su ifstream ir patikrina sėkmę.",
+            "Perskaito skaičius ciklu while (fin >> x).",
+            "Perskaito tekstą su tarpais.",
+            "Iš paprastos eilutės gauna atskiras reikšmes.",
+            "Užpildo vector iš kelių laukų įrašų."
+          ],
+          "title": "Tekstinių failų skaitymas ir eilučių skaidymas",
+          "description": "Tekstinio failo atvėrimas ir skaitymo būsenos tikrinimas; Skaitinių duomenų skaitymas iki failo pabaigos; Eilučių skaitymas naudojant getline; Tekstinės eilutės skaidymas į laukus; Failo duomenų įkėlimas į struktūrų seką."
+        },
+        {
+          "outcomes": [
+            "Sukuria rezultatų failą su ofstream.",
+            "Pateikia aiškius rezultatus su reikiamu tikslumu.",
+            "Atlieka visą nuskaitymo ir išvedimo grandinę."
+          ],
+          "title": "Rezultatų formatavimas ir rašymas į failą",
+          "description": "Rezultatų rašymas į tekstinį failą; Skaitinių rezultatų formatavimas failo išvestyje; Praktinis darbas nuo duomenų failo iki rezultatų failo."
+        },
+        {
+          "outcomes": [
+            "Apskaičiuoja suvestinę ir valdo tuščią seką.",
+            "Randa ekstremumus ir jų vietas.",
+            "Randa elementą arba praneša, kad jo nėra.",
+            "Sukuria sąlygas atitinkančių elementų seką."
+          ],
+          "title": "Sekos statistika, paieška ir atranka",
+          "description": "Sumos, kiekio ir vidurkio skaičiavimas duomenų sekoje; Mažiausios ir didžiausios reikšmės bei jų indeksų paieška; Tiesinė paieška ir pirmos atitikties nustatymas; Elementų atranka pagal vieną ir kelias sąlygas."
+        },
+        {
+          "outcomes": [
+            "Paaiškina paprasto rikiavimo veiksmus.",
+            "Surikiuoja skaitinę seką abiem kryptimis.",
+            "Atseka paieškos intervalo mažinimą.",
+            "Suskaičiuoja riboto intervalo reikšmių dažnius.",
+            "Atrenka, surikiuoja ir apibendrina duomenis."
+          ],
+          "title": "Rikiavimas, dvejetainė paieška ir dažniai",
+          "description": "Duomenų rikiavimo principas ir elementų sukeitimas; Duomenų rikiavimas su std::sort ir tvarkos pasirinkimas; Dvejetainės paieškos principas surikiuotoje sekoje; Dažnių skaičiavimas ir pasikartojančių reikšmių analizė; Algoritmų derinimas praktinėje duomenų apdorojimo užduotyje."
+        },
+        {
+          "outcomes": [
+            "Sukuria paprastą skaičiavimo funkciją.",
+            "Paaiškina, kurie kintamieji pasikeičia.",
+            "Pritaiko nuorodos parametrą sąmoningai.",
+            "Atskiria vietinius kintamuosius ir parametrus.",
+            "Apskaičiuoja sekos rodiklį nekeisdamas duomenų."
+          ],
+          "title": "Funkcijos, parametrai ir kintamųjų galiojimas",
+          "description": "Funkcijos aprašas, iškvietimas ir grąžinama reikšmė; Parametrai ir argumentai, perdavimas reikšme; Perdavimas nuoroda ir kelių reikšmių keitimas; Lokalių kintamųjų galiojimo sritis ir vardų aiškumas; Sekos perdavimas funkcijai ir const nuoroda."
+        },
+        {
+          "outcomes": [
+            "Sukuria funkciją teksto požymiui nustatyti.",
+            "Sukuria aiškią trijų dalių programą.",
+            "Patikrina funkcijas ir pagrindžia programos struktūrą."
+          ],
+          "title": "Programos skaidymas į paprogrames ir tikrinimas",
+          "description": "Teksto apdorojimo paprogramė ir pakartotinis naudojimas; Programos skaidymas į skaitymo, skaičiavimo ir rašymo funkcijas; Paprogramių tikrinimas ir integruoto darbo pristatymas."
+        },
+        {
+          "outcomes": [
+            "Atskiria sąvokas ir pateikia taikymo pavyzdį.",
+            "Parengia nedidelį mokymo duomenų rinkinį.",
+            "Išmoko paprastą dviejų klasių modelį.",
+            "Apskaičiuoja teisingų atsakymų dalį.",
+            "Schemoje paaiškina įvesties kelią iki išvesties.",
+            "Nustato bent vieną klaidų priežastį."
+          ],
+          "title": "Mašininis mokymasis ir neuroniniai tinklai",
+          "description": "Dirbtinio intelekto, mašininio mokymosi ir neuroninių tinklų sąryšis; Mokymo pavyzdžiai, požymiai ir klasių žymos; Klasifikavimo modelio mokymas grafinėje aplinkoje; Modelio tikrinimas su nematytais duomenimis; Neuroninio tinklo sluoksniai, svoriai ir aktyvacija; Modelio klaidos, persimokymas ir duomenų subalansavimas."
+        },
+        {
+          "outcomes": [
+            "Pagrindžia, kada rezultatu negalima aklai pasitikėti.",
+            "Palygina naudas, ribotumus ir žmogaus vaidmenį.",
+            "Patobulina modelį pagal užfiksuotas klaidas.",
+            "Pateikia rezultatą, klaidų pavyzdžius ir išvadą."
+          ],
+          "title": "Atsakingas DI naudojimas ir praktinis projektas",
+          "description": "DI rezultatų patikimumas, privatumas ir šališkumas; DI taikymo pasirinkimas pagal užduotį ir riziką; Praktinis DI projektas ir modelio tobulinimas; DI projekto pristatymas ir ribotumų įvardijimas."
+        },
+        {
+          "outcomes": [
+            "Paaiškina, kaip saugiai perduodamas pranešimas.",
+            "Atskiria slaptumą, vientisumą ir tapatybės patikrą."
+          ],
+          "title": "Kriptografija, sertifikatai ir elektroninis parašas",
+          "description": "Simetrinis ir asimetrinis šifravimas, viešasis ir privatusis raktai; Sertifikatas, elektroninis parašas ir saugus ryšys."
+        },
+        {
+          "outcomes": [
+            "Atskiria komutatoriaus, maršruto parinktuvo ir prieigos taško vaidmenis.",
+            "Paaiškina adresų paskirtį tinkle.",
+            "Paaiškina svetainės pasiekimo pagal vardą eigą.",
+            "Atpažįsta pagrindinių protokolų paskirtį."
+          ],
+          "title": "Kompiuterių tinklai, adresai ir protokolai",
+          "description": "Vietinis ir platusis tinklas, tinklo įrenginių paskirtis; IP ir MAC adresai, privatieji ir viešieji adresai; DNS ir domenų vardų susiejimas su IP adresais; Duomenų paketai, protokolai ir prievadai."
+        },
+        {
+          "outcomes": [
+            "Apskaičiuoja apytikrę perdavimo trukmę.",
+            "Pasiūlo nuoseklų gedimo tikrinimo planą."
+          ],
+          "title": "Ryšio sparta ir tinklo sutrikimų diagnostika",
+          "description": "Ryšio sparta, perdavimo trukmė ir laidinis bei belaidis ryšys; Tinklo sutrikimų nustatymo seka ir saugus naudojimas."
+        },
+        {
+          "outcomes": [
+            "Pagrindžia priemonę pagal auditoriją ir užduotį.",
+            "Parengia aiškų laiško juodraštį.",
+            "Parengia darbotvarkę bei dalyvavimo taisykles.",
+            "Parenka tinkamą reakciją į rizikingą žinutę."
+          ],
+          "title": "Skaitmeninis bendravimas ir virtualūs susitikimai",
+          "description": "Sinchroninio ir asinchroninio bendravimo priemonių pasirinkimas; Dalykinis elektroninis laiškas ir aiškus prašymo formulavimas; Virtualaus susitikimo organizavimas ir prieinamumas; Bendravimo rizikos, tapatybės tikrinimas ir konfliktų sprendimas."
+        },
+        {
+          "outcomes": [
+            "Pagrindžia pasirinkimą kriterijų lentele.",
+            "Suteikia minimalias tinkamas teises ir randa pakeitimus.",
+            "Sukuria aiškų darbų pasidalijimą ir stebi eigą.",
+            "Pateikia rezultatą ir įvardija proceso patobulinimą."
+          ],
+          "title": "Bendradarbiavimas ir komandinio darbo organizavimas",
+          "description": "Bendradarbiavimo priemonių palyginimas pagal darbo poreikius; Bendro failo prieigos teisės, komentarai ir versijų istorija; Komandinės užduoties planas, vaidmenys ir terminai; Komandinio darbo rezultato ir bendradarbiavimo įsivertinimas."
+        }
+      ]
+    },
+    {
+      "source": "IV_klases_informatikos_planas_2026_2027.docx",
+      "title": "IV klasė · Informatika",
+      "description": "Mokymosi temos pagal 2026–2027 m. m. planą. Temos apjungia giminingą turinį, nepriklauso nuo pamokų datų ir gali būti nagrinėjamos pakartotinai.",
+      "topics": [
+        {
+          "outcomes": [
+            "Atskiria įprastus ir specialių kategorijų asmens duomenis bei paaiškina sutikimo sąlygas.",
+            "Nustato, kokie duomenys renkami svetainėje, ir pagrindžia slapukų pasirinkimą.",
+            "Įvertina duomenų nutekėjimo situaciją ir pasiūlo prevencinius veiksmus."
+          ],
+          "title": "Asmens duomenys, privatumas ir BDAR",
+          "description": "Asmens duomenų samprata, BDAR principai ir teisėto tvarkymo sąlygos; Privatumo politika, slapukai ir naudotojo teisių įgyvendinimas; Asmens duomenų pažeidimų rizikos ir saugos priemonių parinkimas."
+        },
+        {
+          "outcomes": [
+            "Paaiškina šifravimo ir maišos (hash) skirtumus bei paskirtį.",
+            "Paaiškina kvalifikuoto el. parašo paskirtį ir atskiria jį nuo paprasto parašo vaizdo.",
+            "Patikrina pasirašyto dokumento galiojimą ir paaiškina saugaus perdavimo eigą."
+          ],
+          "title": "Šifravimas, maiša ir elektroninių dokumentų pasirašymas",
+          "description": "Duomenų šifravimo principai, maišos funkcijos ir duomenų vientisumas; Kvalifikuotas elektroninis parašas, jo teisinė galia ir tapatybės patvirtinimas; Elektroninių dokumentų pasirašymas, tikrinimas ir šifravimas praktikoje."
+        },
+        {
+          "outcomes": [
+            "Pritaiko tyrimo rezultatų formą pasirinktai tikslinei auditorijai.",
+            "Sudaro tvarkingą rodiklių lentelę su paaiškinamaisiais laukais.",
+            "Pasirenka tinkamą diagramų rinkinį keliems rodikliams palyginti.",
+            "Suprojektuoja vieno puslapio rezultatų suvestinės maketą."
+          ],
+          "title": "Duomenų suvestinės ir rezultatų pateikimas",
+          "description": "Duomenų tyrybos etapai ir rezultatų pateikimo tikslas bei auditorija; Skaitinių ir tekstinių duomenų apjungimas suvestinėse; Vizualinių priemonių atranka daugiamačiams duomenims pateikti; Infografiko ir duomenų švieslentės (dashboard) struktūra."
+        },
+        {
+          "outcomes": [
+            "Aptinka klaidinantį rezultatų pateikimą ir jį ištaiso.",
+            "Parengia nuoseklią 3 dalių įžvalgų seką pagal duomenis.",
+            "Pateikia pilną tyrimo aprašą su šaltiniais ir duomenų rinkimo sąlygomis.",
+            "Pristato tyrimo rezultatus ir atsako į klausimus apie metodiką."
+          ],
+          "title": "Duomenų pasakojimas, ataskaita ir argumentavimas",
+          "description": "Duomenų interpretavimo klaidos, manipuliacijos ir šališkumo atpažinimas; Duomenų pasakojimas (data storytelling): nuo hipotezės iki rekomendacijos; Ataskaitos techninis parengimas, citavimas ir metaduomenų nurodymas; Duomenų tyrybos rezultatų pristatymas ir argumentuotas gynimas."
+        },
+        {
+          "outcomes": [
+            "Paaiškina kadrinės ir tarpinių kadrų (tweening) animacijos skirtumus.",
+            "Sukuria tolygų objekto judėjimą tarp raktinių kadrų.",
+            "Suderina kelis objekto savybių pokyčius laike.",
+            "Pritaiko natūralų judėjimo pagreitį animuojamam objektui."
+          ],
+          "title": "Animacijos principai, raktiniai kadrai ir judėjimas",
+          "description": "Skaitmeninės animacijos principai, kadrų dažnis ir animacijos rūšys; Laiko juosta, raktiniai kadrai (keyframes) ir objekto judėjimo trajektorija; Objekto mastelio, pasukimo ir skaidrumo animavimas; Judėjimo greičio kreivės (easing): greitėjimas ir lėtėjimas."
+        },
+        {
+          "outcomes": [
+            "Orientuojasi 3D erdvėje ir išdėsto bazinius tūrinius objektus.",
+            "Sumodeliuoja sudėtingesnės formos 3D objektą iš primityvo.",
+            "Pritaiko objektams spalvas, blizgesį ir sukonfigūruoja apšvietimą."
+          ],
+          "title": "3D modeliavimas, medžiagos ir apšvietimas",
+          "description": "Trimačio modeliavimo erdvė: koordinatės, tūriniai primityvai ir kameros valdymas; Tūrinių objektų modeliavimas: viršūnės, briaunos, plokštumos ir išspaudimas (extrude); Medžiagos, paviršiaus savybės ir apšvietimo šaltiniai 3D scenoje."
+        },
+        {
+          "outcomes": [
+            "Sukuria kameros skrydį arba objekto apžvalgos animaciją.",
+            "Pritaiko bazinę gravitacijos ir susidūrimo simuliaciją."
+          ],
+          "title": "3D animacija, kameros ir fizikinės sąveikos",
+          "description": "Kameros judėjimo animavimas ir scenos kompozicija; Fizikinių savybių ir sąveikos modeliavimas animacijoje."
+        },
+        {
+          "outcomes": [
+            "Parengia trumpo animuoto klipo kadruotę ir techninį planą.",
+            "Sugeneruoja ir eksportuoja baigtą animaciją tinkamu vaizdo formatu.",
+            "Įvertina sukurtą animaciją pagal kriterijus ir ištaiso netolygumus."
+          ],
+          "title": "Animacijos projektas, atvaizdavimas ir eksportas",
+          "description": "Animacijos scenarijus, kadruotė (storyboard) ir projekto planavimas; Animuoto objekto kūrimas, atvaizdavimas (rendering) ir eksportavimas; Animacijos darbų peržiūra, techninės kokybės vertinimas ir tobulinimas."
+        },
+        {
+          "outcomes": [
+            "Atskiria fiksuoto ir prisitaikančio maketo elektroninius leidinius.",
+            "Sukuria leidinio puslapio tinklelį ir pasirenka derančią tipografiją.",
+            "Sukuria ir pritaiko šabloninį puslapį daugiapuslapiam leidiniui.",
+            "Sujungia teksto rėmelius ir sutvarko teksto tekėjimą per kelis stulpelius.",
+            "Įkelia tinkamos raiškos vaizdus ir pritaiko teksto apgaubimą."
+          ],
+          "title": "Elektroninio leidinio dizainas ir maketavimas",
+          "description": "Elektroniniai leidiniai, jų tipai, formatų (PDF, EPUB, HTML) savybės ir projektavimas; Elektroninio leidinio grafinis dizainas: tinklelis, paraštės ir šriftų hierarchija; Puslapių šablonai (master pages), puslapių numeracija ir pasikartojantys elementai; Teksto srautai, teksto rėmeliai ir teksto laužymo taisyklės makete; Grafikos, nuotraukų ir schemų parengimas bei integravimas į elektroninį leidinį."
+        },
+        {
+          "outcomes": [
+            "Sukuria automatinį interaktyvų turinį ir kryžmines nuorodas.",
+            "Integruoja medijos elementą arba jo interaktyvią nuorodą į leidinį.",
+            "Patikrina leidinio skaitomumą, kontrastą ir pritaiko „Creative Commons“ licenciją.",
+            "Eksportuoja galutinį elektroninį leidinį ir pagrindžia dizaino sprendimus."
+          ],
+          "title": "Interaktyvus leidinys, prieinamumas ir publikavimas",
+          "description": "Hipertekstas, vidinės nuorodos ir interaktyvus turinys elektroniniame leidinyje; Garso, filmuoto vaizdo ir animuotų elementų įtraukimas į skaitmeninį leidinį; Elektroninio leidinio prieinamumas, licencijavimas ir paruošimas publikavimui; Elektroninio leidinio publikavimas, pristatymas ir savitarpio vertinimas."
+        },
+        {
+          "outcomes": [
+            "Perskaito duomenis iš tekstinio failo ir perduoda juos funkcijai.",
+            "Aprašo struktūrą su keliais skirtingų tipų laukais ir vienmačiu masyvu viduje.",
+            "Įkelia struktūrų sąrašą iš failo ir atlieka skaičiavimus su kiekvienu įrašu.",
+            "Sukuria pagalbinę skaičiavimo funkciją struktūros viduje."
+          ],
+          "title": "C++ pagrindų taikymas ir struktūrų sekos",
+          "description": "C++ bazinių konstrukcijų, funkcijų ir darbo su failais diagnostinis kartojimas; Struktūra (struct) ir duomenų grupavimas sprendžiant sudėtingesnius uždavinius; Struktūrų masyvas ir dinaminis vektorius (std::vector<Struct>) duomenų saugojimui; Metodai ir konstruktoriai struktūros (struct) viduje."
+        },
+        {
+          "outcomes": [
+            "Nuskaityto iš failo dvimačio masyvo elementus pasiekia pagal eilutę ir stulpelį.",
+            "Apskaičiuoja kiekvienos eilutės ir kiekvieno stulpelio rodiklius.",
+            "Randa matricos ekstremumą ir nurodo jo eilutės bei stulpelio numerius.",
+            "Sujungia lentelės duomenis su tekstiniais įrašų pavadinimais."
+          ],
+          "title": "Dvimačiai masyvai ir matricos",
+          "description": "Dvimatis masyvas (matrica): aprašymas, indeksavimas ir nuskaitymas; Skaičiavimai dvimačiame masyve: eilučių, stulpelių ir įstrižainių sumos; Didžiausios ir mažiausios reikšmės paieška dvimačiame masyve bei jos koordinatės; Dvimatis masyvas ir struktūrų derinimas praktiniame uždavinyje."
+        },
+        {
+          "outcomes": [
+            "Naudoja find, substr, erase ir replace teksto analizei."
+          ],
+          "title": "Teksto eilutės ir jų metodai",
+          "description": "Simbolių eilutės (std::string) metodai: paieška, dalies išskyrimas ir keitimas."
+        },
+        {
+          "outcomes": [
+            "Naudoja std::map raktų ir reikšmių poroms saugoti bei grupuoti.",
+            "Išrenka unikalius duomenų elementus naudodamas std::set."
+          ],
+          "title": "Poros, žodynai ir unikalių reikšmių aibės",
+          "description": "Porų struktūra (std::pair) ir asociatyvusis konteineris (std::map); Unikalių reikšmių aibė (std::set) ir pasikartojimų šalinimas."
+        },
+        {
+          "outcomes": [
+            "Paaiškina std::queue ir std::stack veikimą bei taikymo atvejus.",
+            "Pasirenka tinkamiausią duomenų struktūrą ir pagrindžia savo sprendimą.",
+            "Savarankiškai parašo programą su struktūrų seka ir failais."
+          ],
+          "title": "Eilės, dėklai ir duomenų struktūrų projektavimas",
+          "description": "Eilės (FIFO) ir dėklo (LIFO) duomenų struktūrų veikimo principai; Sudėtingų duomenų struktūrų pasirinkimas ir projektavimas pagal uždavinio sąlygą; Atsiskaitymas ir praktinis darbas: sudėtingų duomenų struktūrų apdorojimas C++."
+        },
+        {
+          "outcomes": [
+            "Palygina tiesinio ir kvadratinio sudėtingumo sprendimus.",
+            "Surikiuoja struktūrų sąrašą pagal pagrindinį ir papildomą kriterijų.",
+            "Taiko greitąją paiešką surikiuotame rinkinyje."
+          ],
+          "title": "Algoritmų efektyvumas, rikiavimas ir paieška",
+          "description": "Algoritmo efektyvumo samprata: veiksmų skaičiaus ir atminties sąnaudų vertinimas; Rikiavimo algoritmų palyginimas ir struktūrų rikiavimas pagal kelis požymius; Paieškos algoritmai: nuoseklioji ir dvejetainė paieška struktūrų sekoje."
+        },
+        {
+          "outcomes": [
+            "Sugrupuoja įrašus pagal kategoriją ir apskaičiuoja grupių suvestines.",
+            "Suderina dviejų skirtingų sąrašų duomenis pagal bendrą požymį."
+          ],
+          "title": "Duomenų grupavimas ir kelių sąrašų jungimas",
+          "description": "Duomenų grupavimo, agregavimo ir filtravimo algoritmai; Kelių duomenų srautų (sąrašų) sujungimo ir sankirtos algoritmai."
+        },
+        {
+          "outcomes": [
+            "Atseka paprastos rekursinės funkcijos vykdymą ir išvengia begalinės rekursijos.",
+            "Pritaiko godųjį principą grąžos ar intervalų parinkimo uždaviniui."
+          ],
+          "title": "Rekursija ir godieji algoritmai",
+          "description": "Rekursijos samprata, bazinis atvejis ir rekursinis žingsnis; Godieji (greedy) algoritmai ir optimalaus pasirinkimo strategija."
+        },
+        {
+          "outcomes": [
+            "Teisingai apskaičiuoja laiko trukmę perėjus į kitą valandą ar parą.",
+            "Realizuoja Cezario ar poslinkio šifro algoritmą tekstui."
+          ],
+          "title": "Laiko, datų ir tekstinių duomenų algoritmai",
+          "description": "Laiko, datų ir ciklinių intervalų skaičiavimo algoritmai; Tekstinių duomenų analizės ir šifravimo algoritmai C++ kalboje."
+        },
+        {
+          "outcomes": [
+            "Paaiškina, kaip tarpinių rezultatų išsaugojimas pagreitina skaičiavimus."
+          ],
+          "title": "Dinaminio programavimo ir įsiminimo idėja",
+          "description": "Dinaminio programavimo ir įsiminimo (memoization) idėja."
+        },
+        {
+          "outcomes": [
+            "Išskaido sudėtingą sąlygą į atskiras logines paprogrames.",
+            "Parašo veikiančią kelių etapų duomenų apdorojimo programą.",
+            "Palygina du skirtingus to paties uždavinio sprendimo būdus."
+          ],
+          "title": "Kompleksiniai C++ uždaviniai ir optimizavimas",
+          "description": "Kompleksinio duomenų apdorojimo algoritmo projektavimas ir dekompozicija; Praktinis programavimo darbas: VBE tipo kompleksinio uždavinio sprendimas; Sprendimų aptarimas, kodo optimizavimas ir alternatyvių algoritmų palyginimas."
+        },
+        {
+          "outcomes": [
+            "Atpažįsta klaidos tipą ir paaiškina jos atsiradimo priežastį.",
+            "Sukuria testų rinkinį, kuris atskleidžia paslėptas programos klaidas.",
+            "Naudoja sustabdymo taškus (breakpoints) ir stebi kintamųjų reikšmes.",
+            "Patikrina kiekvienos funkcijos veikimą atskirai prieš jungiant programą.",
+            "Pertvarko painų kodą į skaitomą ir patikimą struktūrą.",
+            "Randa ir ištaiso visas pateiktos programos logines bei ribines klaidas."
+          ],
+          "title": "Programų testavimas, derinimas ir refaktorizavimas",
+          "description": "Programų klaidos: sintaksės, vykdymo laiko (runtime) ir loginės klaidos; Testavimo duomenų rinkinių sudarymas: įprasti, ribiniai ir išskirtiniai atvejai; Programos vykdymo atsekimas žingsnis po žingsnio ir derintuvės (debugger) naudojimas; Atskirų paprogramių (funkcijų) testavimas ir tvirtinimai (assert); Kodo refaktorizavimas, stiliaus taisymas ir apsaugos nuo nekorektiškų duomenų; Praktinis programų testavimo ir klaidų taisymo darbas."
+        },
+        {
+          "outcomes": [
+            "Atskiria siaurąjį ir bendrąjį DI, klasifikavimo ir generatyviuosius modelius.",
+            "Paaiškina žodžių tikimybinį prognozavimą ir „haliucinacijų“ reiškinį.",
+            "Suformuluoja tikslią kontekstinę užklausą ir kritiškai įvertina gautą atsakymą.",
+            "Naudoja DI kaip pagalbinį įrankį, išlaikydamas savarankišką sprendimo kontrolę."
+          ],
+          "title": "Generatyvinis DI, kalbos modeliai ir užklausos",
+          "description": "Dirbtinio intelekto raida, taikymo sritys ir šiuolaikinių DI modelių klasifikacija; Didieji kalbos modeliai (LLM) ir generatyvusis DI: veikimo principas ir ribotumai; Užklausų inžinerija (prompt engineering) ir DI įrankių taikymas mokymosi bei darbo užduotims; DI taikymas duomenų analizei, kodo paaiškinimui ir klaidų paieškai."
+        },
+        {
+          "outcomes": [
+            "Įvertina teisinius ir etinius DI kūrinių bei sprendimų klausimus.",
+            "Atpažįsta suklastoto turinio požymius ir žino apsisaugojimo būdus.",
+            "Argumentuotai įvertina DI kuriamą pridėtinę vertę ir profesijų kaitą."
+          ],
+          "title": "DI atsakomybė, sintetinė medija ir poveikis visuomenei",
+          "description": "Dirbtinis intelektas, teisė, autorių teisės ir atsakomybė; Sintetinė medija (deepfakes), dezinformacija ir saugumas DI amžiuje; DI poveikis sveikatos apsaugai, mokslui ir ateities darbo rinkai."
+        },
+        {
+          "outcomes": [
+            "Nustato tikėtiną gedimo šaltinį pagal simptomus ir pateikia šalinimo planą.",
+            "Naudoja užduočių tvarkytuvę resursus eikvojančioms programoms nustatyti.",
+            "Suplanuoja patikimą duomenų atsarginio kopijavimo ir atkūrimo procesą.",
+            "Nuosekliai patikrina ryšio grandinę ir išsprendžia pateiktą situaciją.",
+            "Parengia aiškią gedimų diagnostikos schemą (algoritmą) naudotojui."
+          ],
+          "title": "Įrenginių diagnostika, našumas ir atsarginės kopijos",
+          "description": "Skaitmeninių įrenginių aparatinės ir programinės įrangos sutrikimų diagnostika; Operacinės sistemos našumo stebėsena, procesų valdymas ir resursų analizė; Programinės įrangos suderinamumas, atnaujinimai ir atsarginių kopijų strategija (3-2-1); Tinklo ir išorinių įrenginių ryšio sutrikimų nustatymas bei šalinimas; Technologinių problemų sprendimo atmintinės rengimas ir situacijų sprendimas."
+        },
+        {
+          "outcomes": [
+            "Palygina skirtingų kartų ir tipų komunikavimo technologijų privalumus.",
+            "Atskiria infrastruktūros, platformos ir programinės įrangos paslaugas.",
+            "Paaiškina išmaniųjų įrenginių duomenų mainus ir įvardija saugumo spragas.",
+            "Paaiškina elektroninių paslaugų portalų veikimą ir autentifikavimo eigą."
+          ],
+          "title": "Debesija, daiktų internetas ir elektroninės paslaugos",
+          "description": "Skaitmeninių komunikavimo technologijų raida, įvairovė ir poveikis visuomenei; Debesų kompiuterijos modeliai (IaaS, PaaS, SaaS) ir debesijos paslaugų veikimas; Daiktų internetas (IoT), išmaniosios sistemos ir jų komunikavimo saugumas; Elektroninės valdžios, e. sveikatos ir skaitmeninių viešųjų paslaugų sistemos."
+        },
+        {
+          "outcomes": [
+            "Įvertina skaitmeninio pėdsako ilgalaikes pasekmes karjerai ir saugumui.",
+            "Suprojektuoja komunikacijos kanalų taisykles komandiniam darbui.",
+            "Sudaro priemonių palyginimo matricą pagal saugumą, kainą ir funkcionalumą."
+          ],
+          "title": "Skaitmeninė tapatybė ir komunikavimo technologijos",
+          "description": "Skaitmeninė tapatybė, reputacija ir komunikavimo etika viešojoje erdvėje; Asinchroninės ir sinchroninės komunikacijos architektūra šiuolaikinėse organizacijose; Virtualaus bendravimo ir bendradarbiavimo priemonių atrankos kriterijai."
+        },
+        {
+          "outcomes": [
+            "Suplanuoja komandinį projektą skaitmeninėje Kanban lentoje.",
+            "Paaiškina pakeitimų istorijos, šakų (branches) ir sujungimo principą.",
+            "Pagal užduotį parenka priemonių rinkinį ir parengia bendrą sprendimo aprašą.",
+            "Argumentuotai apgina pasirinktas bendradarbiavimo priemones ir įsivertina indėlį."
+          ],
+          "title": "Projektų valdymas, versijų kontrolė ir virtuali komanda",
+          "description": "Projektų valdymo metodikos (Agile, Kanban) ir darbų srauto organizavimas; Bendras dokumentų ir programinio kodo kūrimas bei versijų kontrolės principai; Virtualios komandos darbo simuliacija: sprendimo priėmimas ir dokumentavimas; Komandinio projekto pristatymas, priemonių pagrindimas ir refleksija."
+        }
+      ]
+    },
+    {
+      "source": "III_klases_modulis_Duomenu_tyryba_2026_2027.docx",
+      "title": "III klasė · Duomenų tyryba",
+      "description": "Mokymosi temos pagal 2026–2027 m. m. planą. Temos apjungia giminingą turinį, nepriklauso nuo pamokų datų ir gali būti nagrinėjamos pakartotinai.",
+      "topics": [
+        {
+          "outcomes": [
+            "Suformuluoja klausimą ir nustato, kokių duomenų reikia.",
+            "Teisingai kopijuoja formulę, išlaikydamas pastovią reikšmę."
+          ],
+          "title": "Tyrimo klausimas ir Excel pagrindai",
+          "description": "Duomenų tyrimo klausimas ir pradinių Excel gebėjimų įsivertinimas; Santykinės, absoliučiosios ir mišriosios langelių nuorodos."
+        },
+        {
+          "outcomes": [
+            "Importuoja duomenis ir aptinka netinkamus tipus.",
+            "Atrenka nurodytą įrašų grupę neprarasdamas eilučių ryšių."
+          ],
+          "title": "CSV importas, rikiavimas ir filtravimas",
+          "description": "CSV duomenų importas, skaičių ir datų atpažinimas; Duomenų rikiavimas ir filtravimas pagal kelis kriterijus."
+        },
+        {
+          "outcomes": [
+            "Skiria skaitinių ir netuščių langelių skaičiavimą.",
+            "Palygina vidurkį, medianą ir visas dažniausias reikšmes.",
+            "Apskaičiuoja nuokrypio modulį, šaknį ir laipsnį."
+          ],
+          "title": "Statistinės ir matematinės funkcijos",
+          "description": "SUM, AVERAGE, MIN, MAX ir COUNT kartojimas. COUNTA funkcija; MEDIAN ir MODE.MULT taikymas duomenų pasiskirstymui apibūdinti; ABS, SQRT ir POWER taikymo kartojimas."
+        },
+        {
+          "outcomes": [
+            "Atskiria apskaičiuotą reikšmę nuo jos rodymo formato.",
+            "Teisingai numato rezultatą ir su neigiamais skaičiais."
+          ],
+          "title": "Apvalinimas ir skaitmenų atmetimas",
+          "description": "ROUND ir TRUNC: apvalinimas ir skaitmenų atmetimas; ROUNDUP ir ROUNDDOWN: apvalinimas nuo nulio ir link nulio."
+        },
+        {
+          "outcomes": [
+            "Sudaro formulę su viena arba sudėtine sąlyga.",
+            "Klasifikuoja duomenis pagal nesikertančias ribas."
+          ],
+          "title": "Loginės funkcijos ir klasifikavimas",
+          "description": "IF, AND, OR ir NOT kartojimas sudarant logines sąlygas; IFS: kelių nuoseklių sąlygų tikrinimas ir kategorijų priskyrimas."
+        },
+        {
+          "outcomes": [
+            "Susumuoja pasirinktos kategorijos reikšmes.",
+            "Suskaičiuoja sąlygą atitinkančius įrašus.",
+            "Apskaičiuoja grupės vidurkį ir patikrina imtį."
+          ],
+          "title": "Skaičiavimai pagal vieną kriterijų",
+          "description": "SUMIF: sumavimas pagal vieną kriterijų; COUNTIF: įrašų skaičiavimas pagal vieną kriterijų; AVERAGEIF: pasirinktos grupės vidurkio skaičiavimas."
+        },
+        {
+          "outcomes": [
+            "Sudaro dviejų sąlygų sumavimo formulę.",
+            "Skaičiuoja kartu tenkinamas sąlygas.",
+            "Palygina vienodais kriterijais atrinktų grupių vidurkius.",
+            "Randa grupės ekstremumus ir interpretuoja rezultatą.",
+            "Sukuria sumos, kiekio, vidurkio ir ekstremumų suvestinę."
+          ],
+          "title": "Skaičiavimai pagal kelis kriterijus ir suvestinės",
+          "description": "SUMIFS: sumavimas pagal kelis kriterijus; COUNTIFS: įrašų skaičiavimas pagal kelis kriterijus; AVERAGEIFS: vidurkio skaičiavimas pagal kelias sąlygas; MINIFS ir MAXIFS: mažiausios ir didžiausios reikšmės atrinktoje grupėje; Sąlyginių funkcijų derinimas praktinėje suvestinėje."
+        },
+        {
+          "outcomes": [
+            "Sukuria tikrą datos reikšmę, atskiria ją nuo teksto.",
+            "Pagal datas parengia grupavimui tinkamus laukus.",
+            "Apskaičiuoja trukmę ir paaiškina rezultato ženklą."
+          ],
+          "title": "Datos ir terminų analizė",
+          "description": "TODAY ir DATE: datos kūrimas ir šiandienos datos naudojimas; DAY, MONTH ir YEAR: datos dalių išskyrimas; DAYS: dienų tarp datų skaičiavimas ir terminų analizė."
+        },
+        {
+          "outcomes": [
+            "Iš lentelės grąžina nurodytą reikšmę.",
+            "Randa ieškomos reikšmės poziciją.",
+            "Pagal identifikatorių suranda kito stulpelio reikšmę."
+          ],
+          "title": "Paieška su INDEX ir MATCH, VLOOKUP palyginimas",
+          "description": "INDEX: reikšmės gavimas pagal eilutės ir stulpelio numerius; MATCH: tikslios atitikties vietos radimas; INDEX ir MATCH derinimas duomenims susieti."
+        },
+        {
+          "outcomes": [
+            "Pasirenka diagramą pagal tyrimo klausimą.",
+            "Palygina pasiskirstymus ir paaiškina diagramos elementus."
+          ],
+          "title": "Diagramų pasirinkimas ir pasiskirstymų vaizdavimas",
+          "description": "Diagramos pasirinkimas: stulpelinė, juostinė, linijinė ir sklaidos; Histograma, stačiakampė ir kombinuotoji diagramos."
+        },
+        {
+          "outcomes": [
+            "Parengia patikrinamą analizę pagal konkretų klausimą.",
+            "Pagrindžia skaičiavimus ir patobulina ataskaitą."
+          ],
+          "title": "Savarankiškas duomenų tyrimas ir rezultatų pristatymas",
+          "description": "Savarankiškas Excel duomenų tyrimas: formulės, atranka ir išvados; Duomenų tyrimo pristatymas ir formulių klaidų taisymas."
+        }
+      ]
+    },
+    {
+      "source": "IV_klases_modulis_Duomenu_tyryba_2026_2027.docx",
+      "title": "IV klasė · Duomenų tyryba",
+      "description": "Mokymosi temos pagal 2026–2027 m. m. planą. Temos apjungia giminingą turinį, nepriklauso nuo pamokų datų ir gali būti nagrinėjamos pakartotinai.",
+      "topics": [
+        {
+          "outcomes": [
+            "Apskaičiuoja rodiklius su SUMIFS, COUNTIFS, AVERAGEIFS ir MEDIAN.",
+            "Apskaičiuoja amžių, stažą ar dienų skaičių tarp įvykių.",
+            "Pasirenka logiškai teisingą apvalinimo kryptį pagal uždavinio sąlygą.",
+            "Sudaro suvestinę iš prieš tai teksto funkcijomis išskirtų stulpelių."
+          ],
+          "title": "Statistinių, sąlyginių ir datos funkcijų taikymas",
+          "description": "Diagnostinis III kl. Excel funkcijų kartojimas: sąlyginiai ir statistiniai skaičiavimai; Datos funkcijų (DATE, YEAR, MONTH, DAY, DAYS) praktinis kartojimas; Apvalinimo funkcijų (ROUND, ROUNDUP, ROUNDDOWN, TRUNC) taikymas praktikoje; Kelių sąlygų analizė (SUMIFS, COUNTIFS, AVERAGEIFS, MINIFS, MAXIFS) su išvalytais duomenimis."
+        },
+        {
+          "outcomes": [
+            "Suranda įrašo reikšmę kitoje lentelėje naudodamas VLOOKUP.",
+            "Pasirenka tinkamą paieškos būdą, kai raktas nėra pirmame stulpelyje."
+          ],
+          "title": "Paieška su VLOOKUP, INDEX ir MATCH",
+          "description": "Vertikalioji paieška VLOOKUP: tiksli ir apytikslė atitiktis; VLOOKUP ir INDEX + MATCH palyginimas bei derinimas su klaidų prevencija."
+        },
+        {
+          "outcomes": [
+            "Sujungia kelis tekstinius laukus ir patikrina kodo ar eilutės ilgį.",
+            "Pašalina perteklinius tarpus ir suvienodina vardų bei pavardžių rašybą."
+          ],
+          "title": "Teksto jungimas, ilgis, valymas ir raidžių registras",
+          "description": "Teksto sujungimo operatorius & ir simbolių skaičiaus funkcija LEN; Teksto valymas ir raidžių registro keitimas: TRIM, UPPER, LOWER, PROPER."
+        },
+        {
+          "outcomes": [
+            "Išskiria kodo prefiksą ir pabaigos simbolius iš teksto eilutės.",
+            "Išskiria nurodyto ilgio poeilutę iš fiksuotos struktūros kodo.",
+            "Randa skyriklio (tarpo, brūkšnio, @) poziciją teksto eilutėje.",
+            "Išskiria vardą, pavardę ar el. pašto domeną, kai jų ilgis skiriasi."
+          ],
+          "title": "Teksto dalių išskyrimas ir skyriklių paieška",
+          "description": "Simbolių išskyrimas iš kairės ir dešinės: LEFT ir RIGHT funkcijos; Simbolių išskyrimas iš eilutės vidurio: MID funkcija; Poeilutės vietos radimas tekste: FIND funkcija; Kintamo ilgio teksto skaidymas derinant LEFT, RIGHT, MID, LEN ir FIND."
+        },
+        {
+          "outcomes": [
+            "Pakeičia nurodytą simbolių skaičių teksto eilutėje kita reikšme.",
+            "Paverčia su LEFT/MID/RIGHT išskirtus skaitmenis tikrais skaičiais.",
+            "Suformuoja tvarkingą tekstinį įrašą su suformatuotu skaičiumi ar data."
+          ],
+          "title": "Teksto keitimas, skaičių konvertavimas ir formatavimas",
+          "description": "Teksto dalies keitimas pagal poziciją: REPLACE funkcija; Tekstinio skaičiaus konvertavimas į skaičių: VALUE funkcija; Skaičių ir datų formatavimas teksto eilutėje: TEXT funkcija."
+        },
+        {
+          "outcomes": [
+            "Iš tekstinio identifikatoriaus sukuria tikrą datą su DATE, VALUE ir MID.",
+            "Priskiria įrašui kategoriją pagal kodo simbolius ir skaitinius rodiklius."
+          ],
+          "title": "Įdėtinės teksto, datos ir loginės formulės",
+          "description": "Teksto ir datos funkcijų jungimas: datos atkūrimas iš tekstinio kodo; Teksto ir sąlyginių funkcijų (IF, IFS, AND, OR) jungimas klasifikavimui."
+        },
+        {
+          "outcomes": [
+            "Sujungia 3 lentelių duomenis ir apskaičiuoja galutinius rodiklius."
+          ],
+          "title": "Kelių lentelių susiejimas ir daugiapakopė paieška",
+          "description": "Daugiapakopės paieškos ir skaičiavimų užduotys su keliomis lentelėmis."
+        },
+        {
+          "outcomes": [
+            "Sukuria informatyvią kombinuotąją ar pasiskirstymo diagramą ataskaitai."
+          ],
+          "title": "Sudėtingesnių duomenų vizualizavimas",
+          "description": "Sudėtingesnių duomenų rinkinių vizualizavimas ir diagramų derinimas."
+        },
+        {
+          "outcomes": [
+            "Importuoja CSV failą ir parengia skaičiavimams tinkamus laukus.",
+            "Užbaigia pilną VBE tipo užduotį ir patikrina rezultatų tikslumą."
+          ],
+          "title": "VBE duomenų tyryba: importas, valymas ir suvestinės",
+          "description": "VBE pobūdžio duomenų tyrybos užduotis Nr. 1: importas, valymas ir pagalbiniai stulpeliai; VBE pobūdžio duomenų tyrybos užduotis Nr. 1: suvestinės, diagramos ir išvados."
+        },
+        {
+          "outcomes": [
+            "Išsprendžia laiko intervalų ir kainoraščių susiejimo užduotį.",
+            "Tiksliai pritaiko MEDIAN, MODE.MULT, IFS ir *IFS šeimos funkcijas."
+          ],
+          "title": "VBE duomenų tyryba: datos, paieška ir statistika",
+          "description": "VBE pobūdžio duomenų tyrybos užduotis Nr. 2: darbas su datomis, laiku ir paieška; VBE pobūdžio duomenų tyrybos užduotis Nr. 3: statistinė analizė ir sąlyginės išraiškos."
+        },
+        {
+          "outcomes": [
+            "Greitai nustato klaidos priežastį formulėje ir ją ištaiso."
+          ],
+          "title": "Formulių klaidų diagnostika ir taisymas",
+          "description": "Dažniausios formulių klaidos (#VALUE!, #N/A, #REF!, #NAME?, #DIV/0!) ir jų šalinimas."
+        },
+        {
+          "outcomes": [
+            "Atlieka savarankišką duomenų analizę naudodamas III–IV kl. funkcijas.",
+            "Parengia švieslentę (suvestinę) ir suformuluoja duomenimis pagrįstas išvadas."
+          ],
+          "title": "Metinis duomenų tyrimo projektas",
+          "description": "Savarankiškas metinis duomenų tyrybos projektas: duomenų paruošimas ir skaičiavimai; Savarankiškas metinis duomenų tyrybos projektas: rezultatų pateikimas ir aprašas."
+        },
+        {
+          "outcomes": [
+            "Per 45 min. savarankiškai atlieka pilną VBE skaičiuoklės užduotį."
+          ],
+          "title": "Bandomasis VBE duomenų tyrybos darbas",
+          "description": "Bandomasis VBE duomenų tyrybos darbas (laiko ribojimo sąlygomis)."
+        }
+      ]
+    }
+  ]
+}
