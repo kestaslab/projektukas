@@ -1,10 +1,10 @@
-<div class="flex items-center justify-between gap-3">
+<div class="flex flex-wrap items-center justify-between gap-3">
   <div>
     <h1 class="text-2xl font-semibold">Temos</h1>
     <p class="text-slate-600 mt-1">Filtruokite pagal temų grupę.</p>
   </div>
 
-  <form method="get" action="/app/temos" class="flex gap-2">
+  <form method="get" action="/app/temos" class="flex flex-wrap gap-2">
     <select name="grupe" class="px-3 py-2 rounded border border-slate-300 bg-white">
       <option value="">Visos grupės</option>
       <% groups.forEach((g) => { %>
@@ -22,7 +22,7 @@
   <% topics.forEach((t) => { %>
     <a class="block bg-white border border-slate-200 rounded-lg p-4 hover:bg-slate-50" href="/app/tema/<%= t.id %>">
       <div class="text-xs text-slate-500"><%= t.group_title %></div>
-      <div class="font-semibold"><%= t.title %></div>
+      <div class="font-semibold"><%= t.title %> <% if (t.is_current) { %><span class="current-badge">● Einama</span><% } %></div>
       <% if (t.short_description) { %><div class="text-sm text-slate-600 mt-1"><%= t.short_description %></div><% } %>
     </a>
   <% }) %>

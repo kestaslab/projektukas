@@ -25,6 +25,10 @@ function initDb({ dataDir }) {
     db.exec(schemaSql);
   }
 
+  const topicColumns = db.prepare('PRAGMA table_info(topics)').all();
+  if (!topicColumns.some((column) => column.name === 'is_current')) {
+    db.exec('ALTER TABLE topics ADD COLUMN is_current INTEGER NOT NULL DEFAULT 0 CHECK (is_current IN (0, 1))');
+  }
   return db;
 }
 

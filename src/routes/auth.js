@@ -43,8 +43,13 @@ router.post('/', (req, res, next) => {
       });
     }
 
+    const destination = /^\/app\/tema\/\d+(?:\?.*)?$/.test(req.session.returnTo || '') ? req.session.returnTo : '/app';
+    delete req.session.returnTo;
     req.session.userId = user.id;
-    return res.redirect('/app');
+    return req.session.save((error) => {
+      if (error) return next(error);
+      return res.redirect(destination);
+    });
   } catch (e) {
     return next(e);
   }

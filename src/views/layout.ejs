@@ -57,7 +57,7 @@ main>.max-w-6xl{padding-top:32px;padding-bottom:40px}
 .course-card p{font-size:12px;color:#7a8d80}
 @media(max-width:767px){.site-nav{display:none!important;position:fixed;z-index:40;top:82px;left:0;width:min(85vw,300px);height:calc(100dvh - 82px);box-shadow:12px 0 40px #173f3b30}.site-nav.is-open{display:block!important}.menu-toggle{display:block}header{position:sticky;top:0;z-index:50}header>div{gap:8px!important;padding:12px}.global-search{min-width:0}.global-search input{min-width:0;padding:10px;font-size:12px}.global-search button{display:none}header button{font-size:12px}.welcome{padding:24px}.welcome-symbol{display:none}.course-grid{grid-template-columns:1fr}main>.max-w-6xl{padding-top:20px}.section-label h2{font-size:16px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style>
+.current-badge{display:inline-block;background:#e0f0d8;color:#315b2e;padding:5px 9px;border-radius:7px;font-size:12px;font-weight:650;vertical-align:middle}.current-nav{color:#c5e7a6;font-size:11px;white-space:nowrap}.share-controls{max-width:100%}.share-link{font-size:12px;color:#24433c;background:#fff}.current-topics{background:#fff;border:1px solid #cbdcc8;border-radius:16px;padding:20px;margin-top:24px}.current-topic-link{display:block;padding:12px 0;border-top:1px solid #edf0e9;font-weight:600}.current-topic-link small{display:block;font-weight:400;color:#6c8074;margin-bottom:3px}</style>
 </head>
   <body class="bg-slate-50 text-slate-900">
     <a href="#main-content" class="skip-link">Pereiti prie turinio</a>
@@ -86,7 +86,7 @@ main>.max-w-6xl{padding-top:32px;padding-bottom:40px}
                         <div class="text-xs text-slate-500 px-2 py-1">Temų nėra.</div>
                       <% } %>
                       <% g.topics.forEach((t) => { %>
-                        <a class="block px-2 py-1 rounded hover:bg-slate-100 text-sm" href="/app/tema/<%= t.id %>"><%= t.title %></a>
+                        <a class="block px-2 py-1 rounded hover:bg-slate-100 text-sm" href="/app/tema/<%= t.id %>"><%= t.title %><% if (t.is_current) { %> <span class="current-nav">● Einama</span><% } %></a>
                       <% }) %>
                     </div>
                   </details>
@@ -144,6 +144,18 @@ main>.max-w-6xl{padding-top:32px;padding-bottom:40px}
     </div>
   <script>
 (function(){
+document.querySelectorAll('[data-share-topic]').forEach(function(button){
+  button.addEventListener('click',async function(){
+    const box=button.closest('.share-controls'),status=box.querySelector('[data-share-status]'),input=box.querySelector('.share-link');
+    const url=new URL(button.dataset.shareTopic,location.origin).href;
+    input.value=url;input.hidden=false;
+    try{
+      if(!navigator.clipboard||!navigator.clipboard.writeText)throw new Error('clipboard');
+      await navigator.clipboard.writeText(url);
+      status.textContent='Nuoroda nukopijuota.';
+    }catch(error){input.focus();input.select();status.textContent='Nukopijuokite pažymėtą nuorodą.';}
+  });
+});
 const menu=document.getElementById('site-nav'),toggle=document.getElementById('menu-toggle');
 if(!menu)return;
 function closeMenu(){menu.classList.remove('is-open');if(toggle)toggle.setAttribute('aria-expanded','false')}

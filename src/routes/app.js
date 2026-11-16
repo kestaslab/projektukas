@@ -64,7 +64,7 @@ router.get('/temos', (req, res, next) => {
 
     const topics = db
       .prepare(
-        `SELECT t.id, t.title, t.short_description, t.sort_order, g.title AS group_title, g.id AS group_id
+        `SELECT t.id, t.title, t.short_description, t.sort_order, t.is_current, g.title AS group_title, g.id AS group_id
          FROM topics t
          JOIN topic_groups g ON g.id = t.group_id
          WHERE t.is_active = 1 AND g.is_active = 1

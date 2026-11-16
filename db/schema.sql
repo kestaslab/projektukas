@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS topic_groups (
 
 CREATE TABLE IF NOT EXISTS topics (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  is_current INTEGER NOT NULL DEFAULT 0 CHECK (is_current IN (0, 1)),
   group_id INTEGER NOT NULL REFERENCES topic_groups(id) ON DELETE RESTRICT,
   title TEXT NOT NULL,
   short_description TEXT,

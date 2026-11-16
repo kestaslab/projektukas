@@ -17,7 +17,7 @@ function injectNav(req, res, next) {
 
     const topics = db
       .prepare(
-        `SELECT t.id, t.group_id, t.title, t.sort_order
+        `SELECT t.id, t.group_id, t.title, t.sort_order, t.is_current
          FROM topics t
          JOIN topic_groups g ON g.id = t.group_id
          WHERE t.is_active = 1 AND g.is_active = 1

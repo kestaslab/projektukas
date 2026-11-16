@@ -4,6 +4,23 @@
   <% if (topic.short_description) { %><p class="text-slate-600 mt-1"><%= topic.short_description %></p><% } %>
 </div>
 
+<div class="flex flex-wrap items-center gap-3 mt-4">
+  <% if (topic.is_current) { %><span class="current-badge">● Einama tema</span><% } %>
+  <% if (currentUser.role === 'admin') { %>
+    <form method="post" action="/admin/temos/<%= topic.id %>/einama">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <input type="hidden" name="is_current" value="<%= topic.is_current ? '0' : '1' %>">
+      <button class="px-3 py-2 rounded border border-slate-300 bg-white" aria-pressed="<%= topic.is_current ? 'true' : 'false' %>"><%= topic.is_current ? 'Nuimti žymą „Einama“' : 'Pažymėti kaip einamą' %></button>
+    </form>
+  <% } %>
+  <div class="share-controls">
+    <button type="button" class="px-3 py-2 rounded bg-slate-900 text-white" data-share-topic="/app/tema/<%= topic.id %>">Dalintis nuoroda</button>
+    <span class="text-sm text-slate-600" role="status" aria-live="polite" data-share-status></span>
+    <input class="share-link mt-2 w-full px-3 py-2 rounded border border-slate-300" type="text" readonly hidden aria-label="Temos nuoroda">
+  </div>
+</div>
+<p class="text-xs text-slate-500 mt-2">Nuoroda atvers šios temos teoriją ir užduotis. Mokiniams reikės prisijungti.</p>
+
 <div class="grid md:grid-cols-2 gap-4 mt-6">
   <div class="bg-white border border-slate-200 rounded-lg p-4">
     <div class="font-semibold">Teorija</div>

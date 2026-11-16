@@ -5,6 +5,13 @@
     <a class="primary-link" href="/app/temos">Rinktis mokymosi temą <span aria-hidden="true">&nbsp; →</span></a>
   </div><div class="welcome-symbol" aria-hidden="true">{ }</div>
 </section>
+<% const currentTopics = (navTree || []).flatMap(g => g.topics.filter(t => t.is_current).map(t => ({...t, groupTitle:g.title}))); %>
+<% if (currentTopics.length) { %>
+<section class="current-topics" aria-labelledby="current-topics-title">
+  <div class="section-label"><h2 id="current-topics-title">Dabar mokomės</h2><span class="current-badge">Einamos temos</span></div>
+  <% currentTopics.forEach(t => { %><a class="current-topic-link" href="/app/tema/<%= t.id %>"><small><%= t.groupTitle %></small><%= t.title %> →</a><% }) %>
+</section>
+<% } %>
 <section class="mt-8" aria-labelledby="courses-title">
   <div class="section-label"><h2 id="courses-title">Atrask temas</h2><a href="/app/temos">Visos temos →</a></div>
   <div class="course-grid">

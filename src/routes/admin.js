@@ -18,6 +18,21 @@ module.exports = function adminRoutes({ uploadsDir }) {
 
   router.use(requireAdmin);
 
+router.post('/temos/:id/einama', (req, res, next) => {
+  try {
+    const id = Number(req.params.id);
+    const value = req.body.is_current;
+    if (!Number.isSafeInteger(id) || id < 1 || !['0', '1'].includes(value)) {
+      return res.status(400).send('Neteisingi temos duomenys.');
+    }
+    const result = getDb().prepare('UPDATE topics SET is_current = ? WHERE id = ?').run(Number(value), id);
+    if (!result.changes) return res.status(404).send('Tema nerasta.');
+    return res.redirect('/app/tema/' + id);
+  } catch (error) {
+    return next(error);
+  }
+});
+
 router.get('/', (req, res, next) => {
   try {
     const db = getDb();
