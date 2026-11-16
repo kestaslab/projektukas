@@ -2,7 +2,8 @@
 <p class="mt-2 text-slate-600">Teorija, kodo pavyzdžiai ir užduočių sąlygos perkeliamos į programavimo temas. Pakartotinai pateikti įrašai nedubliuojami.</p>
 <form id="local-import" class="mt-6 bg-white border border-slate-200 rounded-lg p-5 space-y-4">
   <label for="bundle" class="block font-medium">Paruoštas HTML medžiagos paketas</label>
-  <input type="file" id="bundle" name="bundle" accept=".json" required>
+  <input type="file" id="bundle" name="bundle" accept=".json">
+  <details><summary class="cursor-pointer text-sm">Arba įklijuoti paruoštą medžiagą</summary><label class="block mt-3 text-sm" for="bundle-text">Importo paketo turinys</label><textarea id="bundle-text" name="bundle_text" rows="5" class="block w-full border rounded p-3 mt-2 font-mono text-xs" spellcheck="false"></textarea></details>
   <input type="hidden" name="_csrf" value="<%= csrfToken %>">
   <p class="text-sm text-slate-500">Iki 5 MB. Prieš importuojant sukuriama duomenų bazės kopija. Esami mokinio sprendimai ir testai išlieka.</p>
   <button class="block bg-slate-900 text-white rounded px-4 py-2">Importuoti medžiagą</button>
