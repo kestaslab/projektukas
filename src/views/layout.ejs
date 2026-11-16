@@ -5,13 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= title ? `${title} – ${APP_NAME}` : APP_NAME %></title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+  <style>
+:root{--ink:#183f3c;--accent:#167267;--paper:#f5f6f2}
+body{background:var(--paper)!important;color:#233e3b;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.site-nav{width:268px;background:#173f3b!important;color:#eef6f2;position:sticky;top:0;height:100vh;overflow-y:auto;border:0!important}
+.site-nav>div{padding:26px 22px;border-color:#ffffff1c}
+.brand-mark{width:46px;height:46px;border:1px solid #ffffff40;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:18px;margin-bottom:18px;color:#b9e5d5}
+.site-nav .text-slate-500,.site-nav .text-slate-400{color:#a3c4ba!important}
+.site-nav .text-slate-700{color:#d9e8e2!important}
+.site-nav nav{padding:14px}
+.site-nav a,.site-nav summary{transition:background .15s;border-radius:9px}
+.site-nav a:hover,.site-nav summary:hover,.site-nav a[aria-current="page"]{background:#ffffff14!important;color:white}
+.site-nav a[aria-current="page"]{box-shadow:inset 3px 0 #b6e0a6}
+.site-nav .border-slate-200{border-color:#ffffff25}
+header{background:#ffffffd9!important}
+header>div{min-height:82px;gap:16px!important}
+.global-search{display:flex;align-items:center;gap:8px;flex:1;max-width:650px;margin-right:auto}
+.global-search input{width:100%;padding:12px 16px;background:#f1f4f1;border:1px solid #e0e7e0;border-radius:12px;font-size:14px}
+.global-search button{font-size:13px;font-weight:600;color:var(--accent);padding:10px}
+button,input,select,textarea,a,summary{outline-offset:4px}
+:focus-visible{outline:3px solid #d69f49!important}
+.bg-slate-900{background:var(--ink)!important}
+.bg-white.border{border-color:#e1e7df!important;box-shadow:0 3px 16px #1d3b3604}
+.rounded-lg{border-radius:16px}
+h1{letter-spacing:-.035em;color:#183f3c}
+main>.max-w-6xl{padding-top:32px;padding-bottom:40px}
+.menu-toggle{display:none;white-space:nowrap;color:var(--ink);font-weight:600}
+.skip-link{position:fixed;left:12px;top:-100px;padding:12px;background:white;z-index:100;border-radius:8px}
+.skip-link:focus{top:12px}
+.welcome{background:#e7eee5;border:1px solid #dae5d6;border-radius:22px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#59776a}
+.welcome h1{font-size:clamp(27px,3vw,38px);line-height:1.2;font-weight:700;margin:10px 0}
+.welcome p{max-width:520px;color:#5b7167;font-size:15px;line-height:1.7}
+.primary-link{display:inline-flex;background:var(--ink);color:white;padding:12px 18px;border-radius:10px;font-size:14px;font-weight:600;margin-top:20px}
+.welcome-symbol{font-family:ui-monospace,monospace;font-size:56px;font-weight:800;color:#4f7e69;border:1px solid #b4cbb5;border-radius:24px;padding:24px;transform:rotate(-5deg)}
+.section-label{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.section-label h2{font-size:18px;font-weight:700;color:var(--ink)}
+.section-label>a{font-size:12px;color:var(--accent);font-weight:600}
+.content-row{display:flex;gap:14px;align-items:center;padding:16px 0;border-top:1px solid #edf0e9;transition:background .15s}
+.content-row:hover{background:#f4f7f2}
+.row-icon{width:38px;height:42px;display:grid;place-items:center;flex-shrink:0;background:#eef3ea;border-radius:10px;color:#4e7862;font-family:ui-monospace,monospace;font-weight:700}
+.row-icon.task{background:#f9f0df;color:#9a7131}
+.row-title{font-size:14px;font-weight:650;line-height:1.5;color:#24433c}
+.row-meta{font-size:12px;color:#7c8d82;margin-top:4px}
+.level{margin-left:auto;white-space:nowrap;background:#f6f4ed;border-radius:7px;font-size:11px;color:#807244;padding:5px 8px}
+.row-arrow{margin-left:auto;color:#91a293}
+.course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.course-card{background:white;border:1px solid #e1e7df;border-radius:15px;padding:20px;transition:transform .15s,border-color .15s}
+.course-card:hover{transform:translateY(-2px);border-color:#83aa91}
+.course-card h3{font-weight:650;color:var(--ink);font-size:14px;margin:9px 0}
+.course-card p{font-size:12px;color:#7a8d80}
+@media(max-width:767px){.site-nav{display:none!important;position:fixed;z-index:40;top:82px;left:0;width:min(85vw,300px);height:calc(100dvh - 82px);box-shadow:12px 0 40px #173f3b30}.site-nav.is-open{display:block!important}.menu-toggle{display:block}header{position:sticky;top:0;z-index:50}header>div{gap:8px!important;padding:12px}.global-search{min-width:0}.global-search input{min-width:0;padding:10px;font-size:12px}.global-search button{display:none}header button{font-size:12px}.welcome{padding:24px}.welcome-symbol{display:none}.course-grid{grid-template-columns:1fr}main>.max-w-6xl{padding-top:20px}.section-label h2{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
   <body class="bg-slate-50 text-slate-900">
+    <a href="#main-content" class="skip-link">Pereiti prie turinio</a>
     <div class="min-h-screen flex">
       <% if (currentUser) { %>
-        <aside class="w-64 shrink-0 bg-white border-r border-slate-200 hidden md:block">
+        <aside id="site-nav" class="site-nav w-64 shrink-0 bg-white border-r border-slate-200 hidden md:block" aria-label="Pagrindinis meniu">
           <div class="p-4 border-b border-slate-200">
-            <div class="text-sm text-slate-500">Sistema</div>
+            <div class="brand-mark" aria-hidden="true">C++</div><div class="text-sm text-slate-500">MOKYKIS · BANDYK · ATRASK</div>
             <div class="font-semibold"><%= APP_NAME %></div>
             <div class="mt-2 text-xs text-slate-500">
               Prisijungęs: <span class="font-medium text-slate-700"><%= currentUser.full_name %></span>
@@ -63,11 +117,16 @@
         </aside>
       <% } %>
 
-      <main class="flex-1">
+      <main id="main-content" class="flex-1 min-w-0" tabindex="-1">
         <header class="bg-white border-b border-slate-200">
           <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
             <% if (currentUser) { %>
-              <div class="flex-1"></div>
+              <button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">☰ Meniu</button>
+              <form action="/app/paieska" method="get" class="global-search">
+                <label class="sr-only" for="global-search">Ieškoti teorijos ir užduočių</label>
+                <input id="global-search" name="q" value="<%= typeof q !== 'undefined' ? q : '' %>" placeholder="Ieškoti teorijos, užduočių…" type="search" />
+                <button type="submit" aria-label="Ieškoti">Ieškoti</button>
+              </form>
               <form action="/app/atsijungti" method="post">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <button class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800">Atsijungti</button>
@@ -83,6 +142,18 @@
         </div>
       </main>
     </div>
-  </body>
+  <script>
+(function(){
+const menu=document.getElementById('site-nav'),toggle=document.getElementById('menu-toggle');
+if(!menu)return;
+function closeMenu(){menu.classList.remove('is-open');if(toggle)toggle.setAttribute('aria-expanded','false')}
+if(toggle)toggle.addEventListener('click',function(){const open=menu.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open))});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){closeMenu();toggle.focus()}});
+document.addEventListener('click',function(e){if(toggle&&!menu.contains(e.target)&&!toggle.contains(e.target))closeMenu()});
+menu.querySelectorAll('a').forEach(function(a){if(a.pathname===location.pathname){a.setAttribute('aria-current','page');let parent=a.parentElement;while(parent&&parent!==menu){if(parent.tagName==='DETAILS')parent.open=true;parent=parent.parentElement}}});
+menu.querySelectorAll('details').forEach(function(d,i){const key='library-menu-'+i;try{if(sessionStorage.getItem(key)==='open')d.open=true}catch(e){}d.addEventListener('toggle',function(){try{sessionStorage.setItem(key,d.open?'open':'closed')}catch(e){}})});
+})();
+</script>
+</body>
 </html>
 
