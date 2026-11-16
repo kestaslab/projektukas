@@ -168,6 +168,25 @@ menu.querySelectorAll('a').forEach(function(a){if(a.pathname===location.pathname
 menu.querySelectorAll('details').forEach(function(d,i){const key='library-menu-'+i;try{if(sessionStorage.getItem(key)==='open')d.open=true}catch(e){}d.addEventListener('toggle',function(){try{sessionStorage.setItem(key,d.open?'open':'closed')}catch(e){}})});
 })();
 </script>
+
+<script>
+document.querySelectorAll('.imported-content img').forEach(function(img){
+  img.tabIndex=0; img.setAttribute('role','button'); img.setAttribute('aria-label','Padidinti iliustraciją'); img.style.cursor='zoom-in';
+  function enlarge(){
+    const dialog=document.createElement('dialog');
+    dialog.style.cssText='border:0;border-radius:12px;padding:16px;max-width:96vw;max-height:94vh;overflow:auto';
+    const close=document.createElement('button');close.type='button';close.textContent='Uždaryti ×';close.style.cssText='display:block;position:sticky;top:0;margin:0 0 12px auto;background:#183f3c;color:white;padding:10px 16px;border-radius:8px;z-index:1';
+    const image=document.createElement('img');image.src=img.src;image.alt=img.alt;image.style.cssText='max-width:none;width:auto;height:auto;display:block';
+    dialog.append(close,image);document.body.append(dialog);
+    close.addEventListener('click',function(){dialog.close()});
+    dialog.addEventListener('click',function(e){if(e.target===dialog)dialog.close()});
+    dialog.addEventListener('close',function(){dialog.remove();img.focus()});
+    dialog.showModal();close.focus();
+  }
+  img.addEventListener('click',enlarge);
+  img.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();enlarge()}});
+});
+</script>
 </body>
 </html>
 
