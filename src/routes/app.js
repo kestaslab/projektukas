@@ -41,23 +41,24 @@ router.get('/', (req, res, next) => {
 router.get('/programavimo-pagrindai', (req, res, next) => {
   try {
     const db = getDb();
-    const topics = db.prepare(`
-      SELECT t.id, t.title, t.short_description, t.is_current
-      FROM topics t JOIN topic_groups g ON g.id=t.group_id
-      WHERE t.is_active=1 AND g.is_active=1
-        AND g.title IN ('Programavimo pagrindai · 10 klasė','Programavimo pagrindai · 11 klasė','Programavimo pagrindai · 12 klasė')
-      ORDER BY g.sort_order, g.id, t.sort_order, t.id
-    `).all();
-    const ids = new Set(topics.map(t => t.id));
-    const theory = db.prepare('SELECT id,topic_id,title FROM theory_pages ORDER BY id').all().filter(t => ids.has(t.topic_id));
-    const tasks = db.prepare('SELECT id,topic_id,title,external_url FROM tasks ORDER BY id').all().filter(t => ids.has(t.topic_id));
-    topics.forEach(t => {
-      t.theory = theory.filter(p => p.topic_id === t.id);
-      t.tasks = tasks.filter(p => p.topic_id === t.id);
-    });
+    const course = require('../data/progmis-course.json');
+    const imported = db.prepare('SELECT source_key,record_type,record_id FROM local_content_imports').all();
+    const pages = new Map(db.prepare(`SELECT p.id,p.title FROM theory_pages p JOIN topics t ON t.id=p.topic_id JOIN topic_groups g ON g.id=t.group_id WHERE t.is_active=1 AND g.is_active=1`).all().map(p => [p.id,p]));
+    const tasks = db.prepare(`SELECT tk.id,tk.title,tk.external_url FROM tasks tk JOIN topics t ON t.id=tk.topic_id JOIN topic_groups g ON g.id=t.group_id WHERE t.is_active=1 AND g.is_active=1`).all();
+    const taskById = new Map(tasks.map(t => [t.id,t]));
+    const importedTasks = new Map(imported.filter(r=>r.record_type==='task').map(r=>[r.source_key,r.record_id]));
+    const topics = course.map(section => ({
+      id: section.sourceId, title: section.title,
+      theory: imported.filter(r=>r.record_type==='theory' && r.source_key.startsWith('theory:'+section.sourceId+':')).map(r=>pages.get(r.record_id)).filter(Boolean),
+      tasks: section.tasks.map(meta => {
+        const task = taskById.get(importedTasks.get('task:'+meta.sourceId)) || tasks.find(t=>t.external_url==='https://progmis.lt/task/'+meta.sourceId);
+        return task ? {...task,title:meta.title} : null;
+      }).filter(Boolean)
+    }));
     return res.render('app/programming_course', {
       title: 'C++ programavimo pagrindai (visa medžiaga)', topics,
-      theoryCount: theory.length, taskCount: tasks.filter(t => !t.external_url).length, q: ''
+      theoryCount: topics.reduce((n,t)=>n+t.theory.length,0),
+      taskCount: topics.reduce((n,t)=>n+t.tasks.filter(u=>!u.external_url).length,0), q: ''
     });
   } catch (error) { return next(error); }
 });

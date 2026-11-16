@@ -3,7 +3,7 @@ const { renderMarkdown } = require('../utils/markdown');
 
 function importLocalProgmis(bundle, db) {
   if (!bundle || bundle.version !== 1 || !Array.isArray(bundle.sections) || bundle.sections.length > 30) throw new Error('Netinkamas importo paketas.');
-  const mapping={11:'Išvestis, kintamieji ir duomenų tipai',12:'Sveikųjų ir realiųjų skaičių įvestis',13:'Sveikųjų ir realiųjų skaičių įvestis',14:'Sąlygos ir loginės išraiškos',15:'Sąlygos ir loginės išraiškos',16:'Sąlygos ir loginės išraiškos',17:'FOR ciklas ir kaupimas',18:'WHILE ciklas ir nežinomas kartojimų skaičius'};
+  const mapping={11:'Išvestis, kintamieji ir duomenų tipai',12:'Sveikųjų ir realiųjų skaičių įvestis',13:'Sveikųjų ir realiųjų skaičių įvestis',14:'Sąlygos ir loginės išraiškos',15:'Sąlygos ir loginės išraiškos',16:'Sąlygos ir loginės išraiškos',17:'FOR ciklas ir kaupimas',18:'WHILE ciklas ir nežinomas kartojimų skaičius',19:'Įdėtiniai ciklai',20:'Vienmačiai masyvai'};
   const stats={theory:0,tasks:0,converted:0,skipped:0,changed:0,sections:[],gaps:[],duplicates:0};
   const string=(v,max=600000)=>{if(typeof v!=='string'||v.length>max)throw new Error('Netinkamas tekstinis laukas.');return v;};
   let count=0;
@@ -36,7 +36,7 @@ function importLocalProgmis(bundle, db) {
         const url='https://progmis.lt/task/'+item.sourceId;
         const reference=db.prepare('SELECT id FROM tasks WHERE topic_id=? AND external_url=?').get(topic.id,url);
         let id;
-        if(reference){id=reference.id;db.prepare(`UPDATE tasks SET title=?,statement=?,input_desc=?,output_desc=?,examples=?,short_description=?,external_url=NULL,content_format='html',updated_at=datetime('now') WHERE id=?`).run(title,fields.statement,fields.input,fields.output,fields.examples,'Užduoties sąlyga iš mokytojo pateikto vietinio PROGMIS HTML.',id);stats.converted++;}
+        if(reference){id=reference.id;db.prepare(`UPDATE tasks SET title=?,statement=?,input_desc=?,output_desc=?,examples=?,short_description=?,external_url=NULL,content_format='html',updated_at=datetime('now') WHERE id=?`).run(title,fields.statement,fields.input,fields.output,fields.examples,'Užduoties sąlyga iš mokytojo pateikto vietinio PROGMIS failo.',id);stats.converted++;}
         else{id=db.prepare(`INSERT INTO tasks(topic_id,title,statement,input_desc,output_desc,examples,short_description,difficulty,tags,content_format) VALUES(?,?,?,?,?,?,?,?,?,'html')`).run(topic.id,title,fields.statement,fields.input,fields.output,fields.examples,'Užduoties sąlyga iš mokytojo pateikto vietinio PROGMIS HTML.',1,'C++,PROGMIS,vietinis turinys').lastInsertRowid;stats.tasks++;}
         db.prepare('INSERT INTO local_content_imports(source_key,record_type,record_id,content_hash,source_file) VALUES(?,?,?,?,?)').run(key,'task',id,record.hash,string(item.file,1000));taskIds.push(id);
       }
