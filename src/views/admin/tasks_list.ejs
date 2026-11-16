@@ -1,0 +1,55 @@
+<div class="flex items-center justify-between gap-3">
+  <div>
+    <h1 class="text-2xl font-semibold">Užduotys</h1>
+    <p class="text-slate-600 mt-1">Filtras pagal temą ir sudėtingumą.</p>
+  </div>
+  <div class="flex items-center gap-2 flex-wrap justify-end">
+    <form method="get" action="/admin/uzduotys" class="flex gap-2">
+      <select name="tema" class="px-3 py-2 rounded border border-slate-300 bg-white">
+        <option value="">Visos temos</option>
+        <% topics.forEach((t) => { %>
+          <option value="<%= t.id %>" <%= String(topicId||'') === String(t.id) ? 'selected' : '' %>><%= t.group_title %> / <%= t.title %></option>
+        <% }) %>
+      </select>
+      <select name="lygis" class="px-3 py-2 rounded border border-slate-300 bg-white">
+        <option value="">Visi lygiai</option>
+        <% [1,2,3,4,5].forEach((lvl) => { %>
+          <option value="<%= lvl %>" <%= String(difficulty||'') === String(lvl) ? 'selected' : '' %>><%= lvl %></option>
+        <% }) %>
+      </select>
+      <button class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800">Filtruoti</button>
+    </form>
+    <a class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800" href="/admin/uzduotys/nauja">+ Nauja</a>
+  </div>
+</div>
+
+<div class="bg-white border border-slate-200 rounded-lg mt-6 overflow-x-auto">
+  <table class="min-w-full text-sm">
+    <thead class="bg-slate-50 text-slate-600">
+      <tr>
+        <th class="text-left px-4 py-3">Pavadinimas</th>
+        <th class="text-left px-4 py-3">Tema</th>
+        <th class="text-left px-4 py-3">Lygis</th>
+        <th class="text-left px-4 py-3">Atnaujinta</th>
+        <th class="text-right px-4 py-3">Veiksmai</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tasks.forEach((u) => { %>
+        <tr class="border-t border-slate-200">
+          <td class="px-4 py-3">
+            <div class="font-medium"><%= u.title %></div>
+            <% if (u.short_description) { %><div class="text-xs text-slate-500 mt-1"><%= u.short_description %></div><% } %>
+          </td>
+          <td class="px-4 py-3"><%= u.topic_title %></td>
+          <td class="px-4 py-3"><%= u.difficulty %></td>
+          <td class="px-4 py-3 text-slate-600"><%= u.updated_at %></td>
+          <td class="px-4 py-3 text-right">
+            <a class="underline" href="/admin/uzduotys/<%= u.id %>">Redaguoti</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+

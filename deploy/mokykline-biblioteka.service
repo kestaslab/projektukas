@@ -1,0 +1,20 @@
+[Unit]
+Description=Mokykline biblioteka
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mokykline-biblioteka
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=COOKIE_SECURE=0
+Environment=SESSION_SECRET=pakeisk-mane-i-saugu-slaptazodi
+Environment=DATA_DIR=/opt/mokykline-biblioteka/data
+Environment=UPLOADS_DIR=/opt/mokykline-biblioteka/uploads
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,35 @@
+<div class="max-w-md mx-auto">
+  <div class="bg-white border border-slate-200 rounded-lg p-6">
+    <h1 class="text-xl font-semibold">Prisijungimas</h1>
+    <p class="text-sm text-slate-600 mt-1">Prisijunkite, kad matytumėte mokomąją medžiagą.</p>
+
+    <% if (error) { %>
+      <div class="mt-4 p-3 rounded border border-red-200 bg-red-50 text-red-800 text-sm"><%= error %></div>
+    <% } %>
+
+    <form class="mt-4 space-y-3" method="post" action="/prisijungimas">
+      <div>
+        <label class="block text-sm font-medium">Vartotojo vardas</label>
+        <input
+          name="username"
+          autocomplete="username"
+          class="mt-1 w-full px-3 py-2 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400"
+          value="<%= username %>"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Slaptažodis</label>
+        <input
+          type="password"
+          name="password"
+          autocomplete="current-password"
+          class="mt-1 w-full px-3 py-2 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400"
+        />
+      </div>
+
+      <button class="w-full px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800">Prisijungti</button>
+    </form>
+  </div>
+</div>
+

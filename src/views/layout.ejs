@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="lt">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title ? `${title} – ${APP_NAME}` : APP_NAME %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <div class="min-h-screen flex">
+      <% if (currentUser) { %>
+        <aside class="w-64 shrink-0 bg-white border-r border-slate-200 hidden md:block">
+          <div class="p-4 border-b border-slate-200">
+            <div class="text-sm text-slate-500">Sistema</div>
+            <div class="font-semibold"><%= APP_NAME %></div>
+            <div class="mt-2 text-xs text-slate-500">
+              Prisijungęs: <span class="font-medium text-slate-700"><%= currentUser.full_name %></span>
+            </div>
+          </div>
+          <nav class="p-2 text-sm">
+            <div class="px-3 pt-2 pb-1 text-xs uppercase tracking-wide text-slate-400">Peržiūra (mokinys)</div>
+            <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/app">Pradžia</a>
+
+            <div class="mt-2 px-3 pt-2 pb-1 text-xs uppercase tracking-wide text-slate-400">Turinys</div>
+            <div class="px-2 pb-2">
+              <% if (navTree && navTree.length) { %>
+                <% navTree.forEach((g) => { %>
+                  <details class="mb-1">
+                    <summary class="cursor-pointer px-2 py-2 rounded hover:bg-slate-100 font-medium"><%= g.title %></summary>
+                    <div class="ml-2 mt-1 border-l border-slate-200 pl-2">
+                      <% if (!g.topics.length) { %>
+                        <div class="text-xs text-slate-500 px-2 py-1">Temų nėra.</div>
+                      <% } %>
+                      <% g.topics.forEach((t) => { %>
+                        <a class="block px-2 py-1 rounded hover:bg-slate-100 text-sm" href="/app/tema/<%= t.id %>"><%= t.title %></a>
+                      <% }) %>
+                    </div>
+                  </details>
+                <% }) %>
+              <% } else { %>
+                <div class="text-xs text-slate-500 px-2 py-2">Turinio nėra.</div>
+              <% } %>
+            </div>
+
+            <details class="mx-2 mb-2">
+              <summary class="cursor-pointer px-2 py-2 rounded hover:bg-slate-100 text-slate-700">Visi sąrašai</summary>
+              <div class="ml-2 mt-1 border-l border-slate-200 pl-2">
+                <a class="block px-2 py-1 rounded hover:bg-slate-100" href="/app/teorija">Teorijos sąrašas</a>
+                <a class="block px-2 py-1 rounded hover:bg-slate-100" href="/app/uzduotys">Užduočių sąrašas</a>
+              </div>
+            </details>
+            <% if (currentUser.role === 'admin') { %>
+              <div class="mt-4 px-3 pt-2 pb-1 text-xs uppercase tracking-wide text-slate-400">Valdymas (mokytojas/admin)</div>
+              <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/admin">Admin skydelis</a>
+              <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/admin/vartotojai">Vartotojai</a>
+              <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/admin/temu-grupes">Valdyti temų grupes</a>
+              <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/admin/temos">Valdyti temas</a>
+              <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/admin/teorija">Valdyti teoriją</a>
+              <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/admin/uzduotys">Valdyti užduotis</a>
+              <a class="block px-3 py-2 rounded hover:bg-slate-100" href="/admin/failai">Valdyti failus</a>
+            <% } %>
+          </nav>
+        </aside>
+      <% } %>
+
+      <main class="flex-1">
+        <header class="bg-white border-b border-slate-200">
+          <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+            <% if (currentUser) { %>
+              <div class="flex-1"></div>
+              <form action="/app/atsijungti" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800">Atsijungti</button>
+              </form>
+            <% } else { %>
+              <div class="font-semibold"><%= APP_NAME %></div>
+            <% } %>
+          </div>
+        </header>
+
+        <div class="max-w-6xl mx-auto px-4 py-6">
+          <%- body %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+

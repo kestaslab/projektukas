@@ -1,0 +1,91 @@
+<h1 class="text-2xl font-semibold">Failai</h1>
+<p class="text-slate-600 mt-1">Įkelkite PDF, Excel ir kitus failus, tada pririškite prie teorijos arba užduoties.</p>
+
+<div class="grid lg:grid-cols-3 gap-4 mt-6">
+  <div class="lg:col-span-1 bg-white border border-slate-200 rounded-lg p-6">
+    <div class="font-semibold">Įkelti failus</div>
+    <form class="mt-4 space-y-3" method="post" action="/admin/failai/ikelti" enctype="multipart/form-data">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+      <div>
+        <label class="block text-sm font-medium">Pririšti prie</label>
+        <select name="linked_type" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 bg-white">
+          <option value="theory">Teorija</option>
+          <option value="task">Užduotis</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Įrašo ID</label>
+        <input name="linked_id" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" placeholder="pvz. 1" />
+        <div class="text-xs text-slate-500 mt-1">Patogiau: pasirinkite iš sąrašų žemiau ir nukopijuokite ID.</div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Failai</label>
+        <input type="file" name="files" multiple class="mt-1 w-full" />
+        <div class="text-xs text-slate-500 mt-1">Leistini: PDF, XLSX/XLS, DOCX/DOC, PPTX, JPG/PNG, ZIP. Iki 25MB.</div>
+      </div>
+
+      <button class="w-full px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800">Įkelti</button>
+    </form>
+
+    <div class="mt-6">
+      <div class="font-semibold">Greiti ID sąrašai</div>
+      <details class="mt-2">
+        <summary class="cursor-pointer text-sm underline">Teorija (ID)</summary>
+        <div class="mt-2 space-y-1 text-sm">
+          <% theory.forEach((p) => { %>
+            <div><span class="font-mono"><%= p.id %></span> – <%= p.title %></div>
+          <% }) %>
+        </div>
+      </details>
+      <details class="mt-2">
+        <summary class="cursor-pointer text-sm underline">Užduotys (ID)</summary>
+        <div class="mt-2 space-y-1 text-sm">
+          <% tasks.forEach((u) => { %>
+            <div><span class="font-mono"><%= u.id %></span> – <%= u.title %></div>
+          <% }) %>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="lg:col-span-2 bg-white border border-slate-200 rounded-lg overflow-x-auto">
+    <table class="min-w-full text-sm">
+      <thead class="bg-slate-50 text-slate-600">
+        <tr>
+          <th class="text-left px-4 py-3">Pavadinimas</th>
+          <th class="text-left px-4 py-3">Tipas</th>
+          <th class="text-left px-4 py-3">Dydis</th>
+          <th class="text-left px-4 py-3">Susieta</th>
+          <th class="text-left px-4 py-3">Įkelta</th>
+          <th class="text-right px-4 py-3">Veiksmai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (!files.length) { %>
+          <tr class="border-t border-slate-200"><td class="px-4 py-4 text-slate-600" colspan="6">Failų nėra.</td></tr>
+        <% } %>
+        <% files.forEach((f) => { %>
+          <tr class="border-t border-slate-200">
+            <td class="px-4 py-3">
+              <a class="underline" href="/failai/atsisiusti/<%= f.id %>"><%= f.original_name %></a>
+            </td>
+            <td class="px-4 py-3"><%= f.mime_type %></td>
+            <td class="px-4 py-3"><%= f.size_bytes %> B</td>
+            <td class="px-4 py-3"><%= f.linked_type === 'theory' ? 'Teorija' : 'Užduotis' %> #<%= f.linked_id %></td>
+            <td class="px-4 py-3 text-slate-600"><%= f.uploaded_at %></td>
+            <td class="px-4 py-3 text-right">
+              <form method="post" action="/admin/failai/<%= f.id %>/trinti" onsubmit="return confirm('Trinti failą?')">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="text-red-700 underline">Trinti</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

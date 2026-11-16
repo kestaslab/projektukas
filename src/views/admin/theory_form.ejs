@@ -1,0 +1,102 @@
+<div class="flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-semibold"><%= mode === 'create' ? 'Nauja teorija' : 'Redaguoti teoriją' %></h1>
+    <p class="text-slate-600 mt-1">Turinys rašomas Markdown formatu.</p>
+  </div>
+  <a class="underline" href="/admin/teorija">Grįžti į sąrašą</a>
+</div>
+
+<% if (error) { %>
+  <div class="mt-4 p-3 rounded border border-red-200 bg-red-50 text-red-800 text-sm"><%= error %></div>
+<% } %>
+
+<div class="grid lg:grid-cols-3 gap-4 mt-6">
+  <div class="lg:col-span-2 bg-white border border-slate-200 rounded-lg p-6">
+    <form method="post" action="<%= mode === 'create' ? '/admin/teorija/nauja' : ('/admin/teorija/' + page.id) %>" class="space-y-4">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div>
+        <label class="block text-sm font-medium">Tema</label>
+        <select name="topic_id" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 bg-white">
+          <% topics.forEach((t) => { %>
+            <option value="<%= t.id %>" <%= String(page.topic_id||'') === String(t.id) ? 'selected' : '' %>><%= t.group_title %> / <%= t.title %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Pavadinimas</label>
+        <input name="title" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" value="<%= page.title %>" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Trumpas aprašymas</label>
+        <textarea name="short_description" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" rows="2"><%= page.short_description || '' %></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Santrauka (pasirenkama)</label>
+        <textarea name="summary" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" rows="2"><%= page.summary || '' %></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Turinys (Markdown)</label>
+        <textarea name="content_markdown" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 font-mono" rows="14"><%= page.content_markdown || '' %></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Susijusios užduotys</label>
+        <div class="mt-2 grid sm:grid-cols-2 gap-2">
+          <% tasks.forEach((u) => { %>
+            <label class="flex items-center gap-2 text-sm">
+              <input type="checkbox" name="task_ids" value="<%= u.id %>" <%= (selectedTaskIds||[]).includes(u.id) ? 'checked' : '' %> />
+              <span><%= u.title %> <span class="text-xs text-slate-500">(Lygis <%= u.difficulty %>)</span></span>
+            </label>
+          <% }) %>
+        </div>
+      </div>
+
+      <button class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800"><%= mode === 'create' ? 'Sukurti' : 'Išsaugoti' %></button>
+    </form>
+  </div>
+
+  <div class="space-y-4">
+    <% if (mode === 'edit') { %>
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="font-semibold">Prisegti failai</div>
+        <div class="mt-3 space-y-2 text-sm">
+          <% if (!attachments || !attachments.length) { %><div class="text-slate-600">Nėra.</div><% } %>
+          <% (attachments||[]).forEach((f) => { %>
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <a class="underline" href="/failai/atsisiusti/<%= f.id %>"><%= f.original_name %></a>
+                <div class="text-xs text-slate-500"><%= f.mime_type %> • <%= f.size_bytes %> B • <%= f.uploaded_at %></div>
+              </div>
+              <form method="post" action="/admin/failai/<%= f.id %>/trinti" onsubmit="return confirm('Trinti failą?')">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="text-red-700 underline">Trinti</button>
+              </form>
+            </div>
+          <% }) %>
+        </div>
+        <div class="mt-4">
+          <a class="underline" href="/admin/failai">Įkelti naują failą</a>
+          <div class="text-xs text-slate-500 mt-1">Failą įkelkite per admin „Failai“ skiltį ir pririškite prie šios teorijos.</div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="font-semibold text-red-700">Trinti teoriją</div>
+        <form class="mt-3" method="post" action="/admin/teorija/<%= page.id %>/trinti" onsubmit="return confirm('Tikrai trinti?')">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <button class="px-3 py-2 rounded border border-red-300 text-red-700 hover:bg-red-50">Trinti</button>
+        </form>
+      </div>
+    <% } else { %>
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="font-semibold">Failai</div>
+        <p class="text-sm text-slate-600 mt-2">Failus galėsite prisegti po teorijos sukūrimo.</p>
+      </div>
+    <% } %>
+  </div>
+</div>
+

@@ -1,0 +1,128 @@
+<div class="flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-semibold"><%= mode === 'create' ? 'Nauja užduotis' : 'Redaguoti užduotį' %></h1>
+    <p class="text-slate-600 mt-1">Užduotis yra mokomoji medžiaga (be automatinio tikrinimo).</p>
+  </div>
+  <a class="underline" href="/admin/uzduotys">Grįžti į sąrašą</a>
+</div>
+
+<% if (error) { %>
+  <div class="mt-4 p-3 rounded border border-red-200 bg-red-50 text-red-800 text-sm"><%= error %></div>
+<% } %>
+
+<div class="grid lg:grid-cols-3 gap-4 mt-6">
+  <div class="lg:col-span-2 bg-white border border-slate-200 rounded-lg p-6">
+    <form method="post" action="<%= mode === 'create' ? '/admin/uzduotys/nauja' : ('/admin/uzduotys/' + task.id) %>" class="space-y-4">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+      <div>
+        <label class="block text-sm font-medium">Tema</label>
+        <select name="topic_id" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 bg-white">
+          <% topics.forEach((t) => { %>
+            <option value="<%= t.id %>" <%= String(task.topic_id||'') === String(t.id) ? 'selected' : '' %>><%= t.group_title %> / <%= t.title %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-sm font-medium">Pavadinimas</label>
+          <input name="title" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" value="<%= task.title %>" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Sudėtingumas (1-5)</label>
+          <select name="difficulty" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 bg-white">
+            <% [1,2,3,4,5].forEach((lvl) => { %>
+              <option value="<%= lvl %>" <%= String(task.difficulty||1) === String(lvl) ? 'selected' : '' %>><%= lvl %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Trumpas aprašymas</label>
+        <textarea name="short_description" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" rows="2"><%= task.short_description || '' %></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Užduoties sąlyga</label>
+        <textarea name="statement" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 font-mono" rows="6"><%= task.statement || '' %></textarea>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-sm font-medium">Įvestis</label>
+          <textarea name="input_desc" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 font-mono" rows="4"><%= task.input_desc || '' %></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Išvestis</label>
+          <textarea name="output_desc" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 font-mono" rows="4"><%= task.output_desc || '' %></textarea>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Pavyzdžiai</label>
+        <textarea name="examples" class="mt-1 w-full px-3 py-2 rounded border border-slate-300 font-mono" rows="4"><%= task.examples || '' %></textarea>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-sm font-medium">Pastabos mokytojui</label>
+          <textarea name="teacher_notes" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" rows="3"><%= task.teacher_notes || '' %></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Sprendimo idėja / užuomina</label>
+          <textarea name="hint" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" rows="3"><%= task.hint || '' %></textarea>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Žymos (tags)</label>
+        <input name="tags" class="mt-1 w-full px-3 py-2 rounded border border-slate-300" value="<%= task.tags || '' %>" placeholder="pvz. if,ciklas,masyvai" />
+      </div>
+
+      <button class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800"><%= mode === 'create' ? 'Sukurti' : 'Išsaugoti' %></button>
+    </form>
+  </div>
+
+  <div class="space-y-4">
+    <% if (mode === 'edit') { %>
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="font-semibold">Prisegti failai</div>
+        <div class="mt-3 space-y-2 text-sm">
+          <% if (!attachments || !attachments.length) { %><div class="text-slate-600">Nėra.</div><% } %>
+          <% (attachments||[]).forEach((f) => { %>
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <a class="underline" href="/failai/atsisiusti/<%= f.id %>"><%= f.original_name %></a>
+                <div class="text-xs text-slate-500"><%= f.mime_type %> • <%= f.size_bytes %> B • <%= f.uploaded_at %></div>
+              </div>
+              <form method="post" action="/admin/failai/<%= f.id %>/trinti" onsubmit="return confirm('Trinti failą?')">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="text-red-700 underline">Trinti</button>
+              </form>
+            </div>
+          <% }) %>
+        </div>
+        <div class="mt-4">
+          <a class="underline" href="/admin/failai">Įkelti naują failą</a>
+          <div class="text-xs text-slate-500 mt-1">Failą įkelkite per admin „Failai“ skiltį ir pririškite prie šios užduoties.</div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="font-semibold text-red-700">Trinti užduotį</div>
+        <form class="mt-3" method="post" action="/admin/uzduotys/<%= task.id %>/trinti" onsubmit="return confirm('Tikrai trinti?')">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <button class="px-3 py-2 rounded border border-red-300 text-red-700 hover:bg-red-50">Trinti</button>
+        </form>
+      </div>
+    <% } else { %>
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="font-semibold">Failai</div>
+        <p class="text-sm text-slate-600 mt-2">Failus galėsite prisegti po užduoties sukūrimo.</p>
+      </div>
+    <% } %>
+  </div>
+</div>
+

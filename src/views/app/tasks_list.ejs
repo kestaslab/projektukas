@@ -1,0 +1,42 @@
+<div class="flex items-center justify-between gap-3">
+  <div>
+    <h1 class="text-2xl font-semibold">Užduotys</h1>
+    <p class="text-slate-600 mt-1">Filtruokite pagal temą ir sudėtingumą.</p>
+  </div>
+
+  <form method="get" action="/app/uzduotys" class="flex gap-2 flex-wrap justify-end">
+    <input
+      name="q"
+      placeholder="Ieškoti užduotyse…"
+      class="px-3 py-2 rounded border border-slate-300 bg-white"
+      value="<%= typeof q === 'string' ? q : '' %>"
+    />
+    <select name="tema" class="px-3 py-2 rounded border border-slate-300 bg-white">
+      <option value="">Visos temos</option>
+      <% topics.forEach((t) => { %>
+        <option value="<%= t.id %>" <%= String(topicId||'') === String(t.id) ? 'selected' : '' %>><%= t.title %></option>
+      <% }) %>
+    </select>
+    <select name="lygis" class="px-3 py-2 rounded border border-slate-300 bg-white">
+      <option value="">Visi lygiai</option>
+      <% [1,2,3,4,5].forEach((lvl) => { %>
+        <option value="<%= lvl %>" <%= String(difficulty||'') === String(lvl) ? 'selected' : '' %>><%= lvl %></option>
+      <% }) %>
+    </select>
+    <button class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800">Filtruoti</button>
+  </form>
+</div>
+
+<div class="mt-6 space-y-2">
+  <% if (!tasks.length) { %>
+    <div class="text-sm text-slate-600">Užduočių nėra.</div>
+  <% } %>
+  <% tasks.forEach((u) => { %>
+    <a class="block bg-white border border-slate-200 rounded-lg p-4 hover:bg-slate-50" href="/app/uzduotis/<%= u.id %>">
+      <div class="text-xs text-slate-500"><%= u.topic_title %> • Lygis <%= u.difficulty %> • <%= u.updated_at %></div>
+      <div class="font-semibold"><%= u.title %></div>
+      <% if (u.short_description) { %><div class="text-sm text-slate-600 mt-1"><%= u.short_description %></div><% } %>
+    </a>
+  <% }) %>
+</div>
+

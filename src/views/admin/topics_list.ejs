@@ -1,0 +1,51 @@
+<div class="flex items-center justify-between gap-3">
+  <div>
+    <h1 class="text-2xl font-semibold">Temos</h1>
+    <p class="text-slate-600 mt-1">Valdymas ir filtravimas pagal temų grupę.</p>
+  </div>
+  <div class="flex items-center gap-2 flex-wrap justify-end">
+    <form method="get" action="/admin/temos" class="flex gap-2">
+      <select name="grupe" class="px-3 py-2 rounded border border-slate-300 bg-white">
+        <option value="">Visos grupės</option>
+        <% groups.forEach((g) => { %>
+          <option value="<%= g.id %>" <%= String(groupId||'') === String(g.id) ? 'selected' : '' %>><%= g.title %></option>
+        <% }) %>
+      </select>
+      <button class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800">Filtruoti</button>
+    </form>
+    <a class="px-3 py-2 rounded bg-slate-900 text-white hover:bg-slate-800" href="/admin/temos/nauja">+ Nauja</a>
+  </div>
+</div>
+
+<div class="bg-white border border-slate-200 rounded-lg mt-6 overflow-x-auto">
+  <table class="min-w-full text-sm">
+    <thead class="bg-slate-50 text-slate-600">
+      <tr>
+        <th class="text-left px-4 py-3">Tema</th>
+        <th class="text-left px-4 py-3">Grupė</th>
+        <th class="text-left px-4 py-3">Rikiavimas</th>
+        <th class="text-left px-4 py-3">Aktyvi</th>
+        <th class="text-left px-4 py-3">Atnaujinta</th>
+        <th class="text-right px-4 py-3">Veiksmai</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% topics.forEach((t) => { %>
+        <tr class="border-t border-slate-200">
+          <td class="px-4 py-3">
+            <div class="font-medium"><%= t.title %></div>
+            <% if (t.short_description) { %><div class="text-xs text-slate-500 mt-1"><%= t.short_description %></div><% } %>
+          </td>
+          <td class="px-4 py-3"><%= t.group_title %></td>
+          <td class="px-4 py-3"><%= t.sort_order %></td>
+          <td class="px-4 py-3"><%= t.is_active ? 'Taip' : 'Ne' %></td>
+          <td class="px-4 py-3 text-slate-600"><%= t.updated_at %></td>
+          <td class="px-4 py-3 text-right">
+            <a class="underline" href="/admin/temos/<%= t.id %>">Redaguoti</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+

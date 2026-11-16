@@ -1,0 +1,36 @@
+<div>
+  <div class="text-xs text-slate-500"><%= page.topic_title %> • Atnaujinta <%= page.updated_at %></div>
+  <h1 class="text-2xl font-semibold mt-1"><%= page.title %></h1>
+  <% if (page.short_description) { %><p class="text-slate-600 mt-1"><%= page.short_description %></p><% } %>
+</div>
+
+<div class="grid lg:grid-cols-3 gap-4 mt-6">
+  <article class="lg:col-span-2 bg-white border border-slate-200 rounded-lg p-4 prose max-w-none">
+    <%- contentHtml %>
+  </article>
+
+  <aside class="space-y-4">
+    <div class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold">Prisegti failai</div>
+      <div class="mt-3 space-y-2 text-sm">
+        <% if (!attachments.length) { %><div class="text-slate-600">Nėra.</div><% } %>
+        <% attachments.forEach((f) => { %>
+          <a class="block underline" href="/failai/atsisiusti/<%= f.id %>"><%= f.original_name %></a>
+          <div class="text-xs text-slate-500"><%= f.mime_type %> • <%= f.size_bytes %> B • <%= f.uploaded_at %></div>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold">Susijusios užduotys</div>
+      <div class="mt-3 space-y-2 text-sm">
+        <% if (!links.length) { %><div class="text-slate-600">Nėra.</div><% } %>
+        <% links.forEach((u) => { %>
+          <a class="block underline" href="/app/uzduotis/<%= u.id %>"><%= u.title %></a>
+          <div class="text-xs text-slate-500">Lygis <%= u.difficulty %></div>
+        <% }) %>
+      </div>
+    </div>
+  </aside>
+</div>
+
