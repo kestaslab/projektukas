@@ -14,24 +14,24 @@
   <article class="lg:col-span-2 bg-white border border-slate-200 rounded-lg p-4 space-y-4">
     <section>
       <div class="font-semibold">Sąlyga</div>
-      <pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.statement %></pre>
+      <% if (taskHtml) { %><div class="imported-content mt-2"><%- taskHtml.statement %></div><% } else { %><pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.statement %></pre><% } %>
     </section>
     <% if (task.input_desc) { %>
       <section>
         <div class="font-semibold">Įvestis</div>
-        <pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.input_desc %></pre>
+        <% if (taskHtml) { %><div class="imported-content mt-2"><%- taskHtml.input_desc %></div><% } else { %><pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.input_desc %></pre><% } %>
       </section>
     <% } %>
     <% if (task.output_desc) { %>
       <section>
         <div class="font-semibold">Išvestis</div>
-        <pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.output_desc %></pre>
+        <% if (taskHtml) { %><div class="imported-content mt-2"><%- taskHtml.output_desc %></div><% } else { %><pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.output_desc %></pre><% } %>
       </section>
     <% } %>
     <% if (task.examples) { %>
       <section>
         <div class="font-semibold">Pavyzdžiai</div>
-        <pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.examples %></pre>
+        <% if (taskHtml) { %><div class="imported-content mt-2"><%- taskHtml.examples %></div><% } else { %><pre class="mt-2 whitespace-pre-wrap text-sm bg-slate-50 border border-slate-200 rounded p-3"><%= task.examples %></pre><% } %>
       </section>
     <% } %>
     <% if (task.hint) { %>

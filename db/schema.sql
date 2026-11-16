@@ -108,3 +108,17 @@ CREATE TABLE IF NOT EXISTS code_submissions (
 );
 CREATE INDEX IF NOT EXISTS idx_tests_task ON task_tests(task_id,sort_order);
 CREATE INDEX IF NOT EXISTS idx_submissions_user_task ON code_submissions(user_id,task_id,id);
+
+CREATE TABLE IF NOT EXISTS local_content_imports (
+  source_key TEXT PRIMARY KEY,
+  record_type TEXT NOT NULL CHECK(record_type IN ('theory','task')),
+  record_id INTEGER NOT NULL,
+  content_hash TEXT NOT NULL,
+  source_file TEXT NOT NULL,
+  imported_at TEXT NOT NULL DEFAULT(datetime('now'))
+);
+CREATE TABLE IF NOT EXISTS local_import_reports (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  report_json TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT(datetime('now'))
+);

@@ -17,6 +17,7 @@ const appRoutes = require('./src/routes/app');
 const adminRoutes = require('./src/routes/admin');
 const fileRoutes = require('./src/routes/files');
 const judgeRoutes = require('./src/routes/judge');
+const localImportRoutes = require('./src/routes/localImport');
 
 const app = express();
 
@@ -76,6 +77,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(localImportRoutes);
 app.use(judgeRoutes);
 app.use('/app', appRoutes);
 app.use('/admin', adminRoutes({ uploadsDir: UPLOADS_DIR }));

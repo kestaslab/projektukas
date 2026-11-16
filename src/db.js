@@ -33,6 +33,9 @@ function initDb({ dataDir }) {
   if (!taskColumns.some(column => column.name === 'external_url')) {
     db.exec('ALTER TABLE tasks ADD COLUMN external_url TEXT');
   }
+  if (!taskColumns.some(column => column.name === 'content_format')) {
+    db.exec("ALTER TABLE tasks ADD COLUMN content_format TEXT NOT NULL DEFAULT 'text' CHECK(content_format IN ('text','html'))");
+  }
   return db;
 }
 

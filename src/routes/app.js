@@ -266,7 +266,13 @@ router.get('/uzduotis/:id', (req, res, next) => {
       )
       .all(id);
 
-    return res.render('app/task_detail', { title: task.title, task, attachments, relatedTheory, q: '' });
+    const taskHtml = task.content_format === 'html' ? {
+      statement: renderMarkdown(task.statement),
+      input_desc: renderMarkdown(task.input_desc || ''),
+      output_desc: renderMarkdown(task.output_desc || ''),
+      examples: renderMarkdown(task.examples || '')
+    } : null;
+    return res.render('app/task_detail', { title: task.title, task, taskHtml, attachments, relatedTheory, q: '' });
   } catch (e) {
     return next(e);
   }
