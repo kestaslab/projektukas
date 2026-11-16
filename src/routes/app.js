@@ -37,6 +37,31 @@ router.get('/', (req, res, next) => {
   }
 });
 
+
+router.get('/programavimo-pagrindai', (req, res, next) => {
+  try {
+    const db = getDb();
+    const topics = db.prepare(`
+      SELECT t.id, t.title, t.short_description, t.is_current
+      FROM topics t JOIN topic_groups g ON g.id=t.group_id
+      WHERE t.is_active=1 AND g.is_active=1
+        AND g.title IN ('Programavimo pagrindai · 10 klasė','Programavimo pagrindai · 11 klasė','Programavimo pagrindai · 12 klasė')
+      ORDER BY g.sort_order, g.id, t.sort_order, t.id
+    `).all();
+    const ids = new Set(topics.map(t => t.id));
+    const theory = db.prepare('SELECT id,topic_id,title FROM theory_pages ORDER BY id').all().filter(t => ids.has(t.topic_id));
+    const tasks = db.prepare('SELECT id,topic_id,title,external_url FROM tasks ORDER BY id').all().filter(t => ids.has(t.topic_id));
+    topics.forEach(t => {
+      t.theory = theory.filter(p => p.topic_id === t.id);
+      t.tasks = tasks.filter(p => p.topic_id === t.id);
+    });
+    return res.render('app/programming_course', {
+      title: 'C++ programavimo pagrindai (visa medžiaga)', topics,
+      theoryCount: theory.length, taskCount: tasks.filter(t => !t.external_url).length, q: ''
+    });
+  } catch (error) { return next(error); }
+});
+
 router.get('/temu-grupes', (req, res, next) => {
   try {
     const db = getDb();

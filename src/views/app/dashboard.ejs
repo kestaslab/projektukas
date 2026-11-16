@@ -14,6 +14,7 @@
 <% } %>
 <section class="mt-8" aria-labelledby="courses-title">
   <div class="section-label"><h2 id="courses-title">Atrask temas</h2><a href="/app/temos">Visos temos →</a></div>
+  <a class="course-card block" href="/app/programavimo-pagrindai"><div class="eyebrow">Visas C++ kursas</div><h3>C++ programavimo pagrindai (visa medžiaga) ↗</h3><p>Visos kurso temos, teorija ir užduotys vienoje vietoje.</p></a>
   <div class="course-grid">
     <% (navTree || []).forEach((g, i) => { %>
       <a class="course-card" href="/app/temos?grupe=<%= g.id %>">
