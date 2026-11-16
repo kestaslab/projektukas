@@ -3,7 +3,7 @@ const { renderMarkdown } = require('../utils/markdown');
 
 function importLocalProgmis(bundle, db) {
   if (!bundle || bundle.version !== 1 || !Array.isArray(bundle.sections) || bundle.sections.length > 30) throw new Error('Netinkamas importo paketas.');
-  const mapping={11:'Išvestis, kintamieji ir duomenų tipai',12:'Sveikųjų ir realiųjų skaičių įvestis',13:'Sveikųjų ir realiųjų skaičių įvestis',14:'Sąlygos ir loginės išraiškos',15:'Sąlygos ir loginės išraiškos',16:'Sąlygos ir loginės išraiškos',17:'FOR ciklas ir kaupimas',18:'WHILE ciklas ir nežinomas kartojimų skaičius',19:'Įdėtiniai ciklai',20:'Vienmačiai masyvai'};
+  const mapping={11:'Išvestis, kintamieji ir duomenų tipai',12:'Sveikųjų ir realiųjų skaičių įvestis',13:'Sveikųjų ir realiųjų skaičių įvestis',14:'Sąlygos ir loginės išraiškos',15:'Sąlygos ir loginės išraiškos',16:'Sąlygos ir loginės išraiškos',17:'FOR ciklas ir kaupimas',18:'WHILE ciklas ir nežinomas kartojimų skaičius',19:'Įdėtiniai ciklai',20:'Vienmačiai masyvai',21:'Funkcijos su grąžinama reikšme',22:'VOID funkcijos ir perdavimas nuoroda',24:'Simboliai ir jų apdorojimas'};
   const stats={theory:0,tasks:0,converted:0,skipped:0,changed:0,sections:[],gaps:[],duplicates:0};
   const string=(v,max=600000)=>{if(typeof v!=='string'||v.length>max)throw new Error('Netinkamas tekstinis laukas.');return v;};
   let count=0;
