@@ -1,0 +1,38 @@
+<section class="mt-6 bg-white border border-slate-200 rounded-lg p-5" aria-labelledby="cpp-title">
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <div><h2 id="cpp-title" class="text-xl font-semibold">Pateikti C++ sprendimą</h2>
+      <p class="text-sm text-slate-500 mt-1">C++17 · standartinė įvestis ir išvestis · iki 2 s ir 128 MB vienam testui.</p></div>
+    <% if (currentUser.role === 'admin') { %><a class="underline text-sm" href="/admin/uzduotys/<%= task.id %>/testai">Tvarkyti užduoties testus</a><% } %>
+  </div>
+  <p class="text-sm mt-3"><%= judgeTestCount ? 'Mokytojo testų: ' + judgeTestCount + '. Paslėptų testų duomenys nerodomi.' : 'Automatiniai testai dar neparuošti. Galite bandyti su savo įvestimi.' %></p>
+  <form id="cpp-form" data-task="<%= task.id %>" class="mt-4 space-y-3">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <div><label for="cpp-file" class="block text-sm font-medium">Įkelti kodo failą (arba rašyti žemiau)</label><input id="cpp-file" type="file" accept=".cpp,.cc,.cxx,.txt" class="mt-2 text-sm"><p class="text-xs text-slate-500 mt-1">Iki 64 KB. Failas įkeliamas į redaktorių; tikrinimui spauskite mygtuką.</p></div>
+    <div><label for="cpp-code" class="block text-sm font-medium">Sprendimo kodas</label>
+      <textarea id="cpp-code" spellcheck="false" rows="14" class="mt-2 w-full border border-slate-300 rounded p-3 font-mono text-sm" style="tab-size:4" required><%= judgeLastCode || '#include <iostream>\nusing namespace std;\n\nint main() {\n    // Čia rašykite savo sprendimą.\n    return 0;\n}\n' %></textarea></div>
+    <div><label for="cpp-input" class="block text-sm font-medium">Mano bandymo įvestis</label><textarea id="cpp-input" rows="3" class="mt-2 w-full border border-slate-300 rounded p-3 font-mono text-sm" placeholder="Pvz. 3 7"></textarea></div>
+    <div class="flex flex-wrap gap-3"><button type="submit" name="mode" value="tests" class="px-4 py-2 rounded bg-slate-900 text-white">Tikrinti sprendimą</button><button type="submit" name="mode" value="custom" class="px-4 py-2 rounded border border-slate-300">Bandyti su mano įvestimi</button></div>
+    <p class="text-xs text-slate-500">Bandymas su savo įvestimi nepatvirtina, kad užduotis išspręsta teisingai. Failų skaitymo užduotims šioje versijoje duomenis pateikite per cin, o rezultatus — per cout.</p>
+  </form>
+  <div id="cpp-result" class="mt-5 space-y-3" role="status" aria-live="polite"></div>
+  <% if (judgeHistory.length) { %><details class="mt-5"><summary class="cursor-pointer text-sm">Mano paskutiniai pateikimai</summary><ul class="mt-2 text-sm space-y-1"><% judgeHistory.forEach(s => { %><li><%= s.created_at %> UTC · <%= ({accepted:'Visi testai įveikti',failed:'Yra neįveiktų testų',compile_error:'Kompiliavimo klaida',custom:'Bandymas su savo įvestimi'})[s.status] || s.status %></li><% }) %></ul></details><% } %>
+</section>
+<script>
+(function(){
+  const form=document.getElementById('cpp-form'),code=document.getElementById('cpp-code'),file=document.getElementById('cpp-file'),result=document.getElementById('cpp-result');
+  function text(tag,value,parent){const el=document.createElement(tag);el.textContent=value;el.className=tag==='pre'?'whitespace-pre-wrap break-words text-xs bg-slate-50 border rounded p-3 mt-2':'mt-2 text-sm';parent.appendChild(el);return el;}
+  file.addEventListener('change',async function(){const f=file.files[0];if(!f)return;result.replaceChildren();if(f.size>65536){text('p','Failas viršija 64 KB.',result);return;}try{code.value=await f.text();text('p','Kodas įkeltas. Galite jį redaguoti ir tikrinti.',result);}catch(e){text('p','Nepavyko perskaityti failo.',result);}});
+  form.addEventListener('submit',async function(event){
+    event.preventDefault();const buttons=form.querySelectorAll('button'),mode=event.submitter?event.submitter.value:'tests';
+    buttons.forEach(b=>b.disabled=true);result.replaceChildren();text('p','Kompiliuojama ir tikrinama…',result);
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),120000);
+    try{
+      const response=await fetch('/app/uzduotis/'+form.dataset.task+'/tikrinti',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',signal:controller.signal,body:JSON.stringify({_csrf:form.elements._csrf.value,code:code.value,input:document.getElementById('cpp-input').value,mode})});
+      if(!response.headers.get('content-type')?.includes('application/json'))throw new Error('Sesija pasibaigė arba serveris nepasiekiamas. Atnaujinkite puslapį.');
+      const data=await response.json();result.replaceChildren();const heading=text('h3',data.message||'Nepavyko patikrinti.',result);heading.className='font-semibold '+(data.status==='accepted'?'text-green-800':'text-slate-900');
+      if(data.diagnostics)text('pre',data.diagnostics,result);
+      (data.tests||[]).forEach(t=>{const box=document.createElement('div');box.className='border rounded p-3 '+(t.status==='passed'?'border-green-200':'border-amber-300');result.appendChild(box);text('strong',(t.status==='passed'?'✓ ':'! ')+t.name+' — '+t.message,box);if(t.hidden)text('p','Paslėptas testas: įvestis ir išvestis nerodomos.',box);else{if(t.input!==undefined)text('pre','Įvestis:\n'+t.input,box);if(t.expected!==undefined)text('pre','Laukiama išvestis:\n'+t.expected,box);if(t.actual!==undefined)text('pre','Jūsų išvestis:\n'+t.actual,box);if(t.stderr)text('pre','Klaidų išvestis:\n'+t.stderr,box);}});
+    }catch(error){result.replaceChildren();text('p',error.name==='AbortError'?'Tikrinimas užtruko. Palaukite ir bandykite dar kartą.':error.message,result);}finally{clearTimeout(timer);buttons.forEach(b=>b.disabled=false);}
+  });
+})();
+</script>

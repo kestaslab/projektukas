@@ -134,3 +134,43 @@ PDF, XLSX/XLS, DOCX/DOC, PPTX, JPG/PNG, ZIP (iki 25MB).
 - `scripts/` – DB init/seed, admin sukūrimas
 - `uploads/` – įkelti failai
 
+
+## C++ sprendimų tikrinimas
+
+Mokinys užduoties puslapyje įrašo kodą arba pasirenka .cpp failą (iki 64 KB).
+„Tikrinti sprendimą“ tikrina pagal mokytojo testus; „Bandyti su mano įvestimi“
+tik vykdo programą ir nesuteikia teisingumo įvertinimo. Saugomi prisijungusio
+mokinio pateikimai; mokinys mato savo paskutinius pateikimus.
+
+Paruošimas Linux / Codespaces aplinkoje su veikiančiu Docker:
+
+```bash
+docker build -t mokykla-cpp-judge:1 -f deploy/judge.Dockerfile .
+node scripts/setup-judge.js
+npm run dev
+```
+
+Mokytojas atidaro užduotį ir pasirenka „Tvarkyti užduoties testus“.
+Leidžiama iki 10 viešų arba paslėptų testų. Lyginama tiksliai arba pagal
+tarpais atskirtus žodžius (be skaitinės paklaidos tolerancijos).
+Tuščia įvestis ir išvestis leidžiama. Pakeitus testus seni pateikimai nepervertinami.
+
+C++17 programos naudoja cin / cout. Failų pavadinimais pagrįsti testai šioje
+versijoje nepalaikomi. Išorinėms PROGMIS užduotims testai automatiškai negeneruojami.
+Pavyzdinė sumos užduotis sukuriama atskirai, esami testai neperrašomi.
+
+Kompiliavimas ir vykdymas atliekami Docker konteineriuose be tinklo, be root
+teisių ir be papildomų capabilities, su tik skaitoma šaknine failų sistema.
+Prijungiamas tik atsitiktinis laikinas pateikimo katalogas; programai jis tik
+skaitomas. Vykdymo riba 2 s / 128 MB, iki 32 procesų ir 32 KB išvesties.
+Vienu metu tikrinami iki 2 pateikimų, vienas vienam vartotojui.
+Paslėptų testų įvestis, laukiami ir faktiniai rezultatai negrąžinami mokiniui.
+Neparuošus Docker atvaizdo tikrinimas grąžina 503, kodas serveryje tiesiogiai nevykdomas.
+Viešam didelio masto naudojimui vykdymo tarnybą perkelkite į atskirą izoliuotą serverį.
+
+Patikra:
+
+```bash
+node --test test/cppJudge.test.js
+JUDGE_INTEGRATION=1 node --test test/cppJudge.test.js
+```

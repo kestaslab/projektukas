@@ -1,0 +1,24 @@
+<h1 class="text-2xl font-semibold">Užduoties testai</h1>
+<p class="mt-2 text-slate-600"><%= task.title %></p>
+<p class="mt-3 text-sm">Kiekvienam testui įrašykite įvestį ir laukiamą išvestį. Tuščia įvestis arba išvestis leidžiama. Paslėptus testus mato tik mokytojas.</p>
+<form id="test-editor" method="post" class="mt-5 space-y-4">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <input type="hidden" name="tests_json" id="tests-json">
+  <div id="test-rows" class="space-y-4">
+  <% tests.forEach((t,i) => { %>
+    <fieldset class="test-row bg-white border border-slate-200 rounded-lg p-4 space-y-3">
+      <label class="block text-sm">Pavadinimas<input data-name class="block mt-1 w-full border rounded p-2" maxlength="80" value="<%= t.name %>" required></label>
+      <div class="grid md:grid-cols-2 gap-3"><label class="block text-sm">Įvestis<textarea data-input class="block mt-1 w-full border rounded p-2 font-mono" rows="3"><%= t.input %></textarea></label><label class="block text-sm">Laukiama išvestis<textarea data-expected class="block mt-1 w-full border rounded p-2 font-mono" rows="3"><%= t.expected %></textarea></label></div>
+      <label class="text-sm">Palyginimas <select data-comparison class="border rounded p-2"><option value="tokens" <%= t.comparison==='tokens'?'selected':'' %>>Ignoruoti tarpų ir eilučių skirtumus</option><option value="exact" <%= t.comparison==='exact'?'selected':'' %>>Tikslus simbolių sutapimas</option></select></label>
+      <label class="block text-sm"><input data-hidden type="checkbox" <%= t.is_hidden?'checked':'' %>> Paslėptas testas</label><button type="button" data-remove class="text-red-700 underline text-sm">Pašalinti testą iš rinkinio</button>
+    </fieldset>
+  <% }) %>
+  </div>
+  <button id="add-test" type="button" class="border rounded px-3 py-2">+ Pridėti testą</button>
+  <p id="test-error" class="text-red-700 text-sm" role="status"></p>
+  <div class="flex gap-4 items-center"><button class="bg-slate-900 text-white rounded px-4 py-2">Išsaugoti testus</button><a class="underline" href="/app/uzduotis/<%= task.id %>">Grįžti į užduotį</a></div>
+</form>
+<template id="test-template"><fieldset class="test-row bg-white border border-slate-200 rounded-lg p-4 space-y-3"><label class="block text-sm">Pavadinimas<input data-name class="block mt-1 w-full border rounded p-2" maxlength="80" required></label><div class="grid md:grid-cols-2 gap-3"><label class="block text-sm">Įvestis<textarea data-input class="block mt-1 w-full border rounded p-2 font-mono" rows="3"></textarea></label><label class="block text-sm">Laukiama išvestis<textarea data-expected class="block mt-1 w-full border rounded p-2 font-mono" rows="3"></textarea></label></div><label class="text-sm">Palyginimas <select data-comparison class="border rounded p-2"><option value="tokens">Ignoruoti tarpų ir eilučių skirtumus</option><option value="exact">Tikslus simbolių sutapimas</option></select></label><label class="block text-sm"><input data-hidden type="checkbox"> Paslėptas testas</label><button type="button" data-remove class="text-red-700 underline text-sm">Pašalinti testą iš rinkinio</button></fieldset></template>
+<script>
+(function(){const rows=document.getElementById('test-rows'),error=document.getElementById('test-error');document.getElementById('add-test').addEventListener('click',function(){if(rows.children.length>=10){error.textContent='Leidžiama iki 10 testų.';return;}rows.appendChild(document.getElementById('test-template').content.cloneNode(true));rows.lastElementChild.querySelector('[data-name]').value='Testas '+rows.children.length;});rows.addEventListener('click',function(e){if(e.target.hasAttribute('data-remove'))e.target.closest('.test-row').remove();});document.getElementById('test-editor').addEventListener('submit',function(e){const tests=Array.from(rows.children).map(row=>({name:row.querySelector('[data-name]').value,input:row.querySelector('[data-input]').value,expected:row.querySelector('[data-expected]').value,comparison:row.querySelector('[data-comparison]').value,hidden:row.querySelector('[data-hidden]').checked}));if(tests.some(t=>new TextEncoder().encode(t.input).length>8192||new TextEncoder().encode(t.expected).length>8192)){e.preventDefault();error.textContent='Vieno testo įvestis ir išvestis turi neviršyti 8 KB.';return;}document.getElementById('tests-json').value=JSON.stringify(tests);});})();
+</script>

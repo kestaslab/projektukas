@@ -16,6 +16,7 @@ const authRoutes = require('./src/routes/auth');
 const appRoutes = require('./src/routes/app');
 const adminRoutes = require('./src/routes/admin');
 const fileRoutes = require('./src/routes/files');
+const judgeRoutes = require('./src/routes/judge');
 
 const app = express();
 
@@ -75,6 +76,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(judgeRoutes);
 app.use('/app', appRoutes);
 app.use('/admin', adminRoutes({ uploadsDir: UPLOADS_DIR }));
 app.use('/failai', fileRoutes({ uploadsDir: UPLOADS_DIR }));
